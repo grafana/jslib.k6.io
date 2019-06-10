@@ -32,25 +32,29 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: .
+          at: ~/k6-js-lib
       # https://discuss.circleci.com/t/circleci-failing-when-using-sudo-apt-get-update/29269/10
       - run: sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
       - run: sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
       - run: sudo apt-get update && sudo apt-get -y install python-pip python-dev
       - run: sudo pip install awscli
-      - run: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_STAG AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_STAG ./deploy.sh
+      - run:
+        - name: Deploy lib to s3
+        - command: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_STAG AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_STAG ~/k6-js-lib/deploy.sh
 
   deploy-to-production:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: .
+          at: ~/k6-js-lib
       # https://discuss.circleci.com/t/circleci-failing-when-using-sudo-apt-get-update/29269/10
       - run: sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
       - run: sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
       - run: sudo apt-get update && sudo apt-get -y install python-pip python-dev
       - run: sudo pip install awscli
-      - run: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_PROD AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_PROD ./deploy.sh
+      - run:
+        - name: Deploy lib to s3
+        - command: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_PROD AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_PROD ~/k6-js-lib/deploy.sh
 
 
 workflows:
