@@ -1,81 +1,25 @@
 version: 2
 
-defaults: &defaults
-  docker:
-    - image: circleci/node:8.10.0
-      environment:
-        JOBS: 1
-  working_directory: ~/k6-js-lib
-
 jobs:
-  # build:
-  #   <<: *defaults
-  #   steps:
-  #     - checkout
-  #     - restore_cache:
-  #         keys:
-  #         - v1-dependencies-{{ checksum "package.json" }}
-  #         # fallback to using the latest cache if no exact match is found
-  #         - v1-dependencies-
-  #     - run: yarn install
-  #     - save_cache:
-  #         paths:
-  #           - node_modules
-  #         key: v1-dependencies-{{ checksum "package.json" }}
-  #     - run: yarn build
-  #     - persist_to_workspace:
-  #         root: .
-  #         paths:
-  #           - .
-
-  deploy-to-staging:
-    <<: *defaults
+  deploy:
+    docker:
+      - image: circleci/python:3.5
+    working_directory: ~/k6-js-lib
     steps:
       - attach_workspace:
           at: ~/k6-js-lib
-      # https://discuss.circleci.com/t/circleci-failing-when-using-sudo-apt-get-update/29269/10
-      - run: sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
-      - run: sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
-      - run: sudo apt-get update && sudo apt-get -y install python-pip python-dev
-      - run: sudo pip install awscli
       - run:
-        - name: Deploy lib to s3
-        - command: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_STAG AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_STAG ~/k6-js-lib/deploy.sh
-
-  deploy-to-production:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/k6-js-lib
-      # https://discuss.circleci.com/t/circleci-failing-when-using-sudo-apt-get-update/29269/10
-      - run: sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
-      - run: sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
-      - run: sudo apt-get update && sudo apt-get -y install python-pip python-dev
-      - run: sudo pip install awscli
+          name: Install awscli
+          command: sudo pip install awscli
       - run:
-        - name: Deploy lib to s3
-        - command: AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_PROD AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_PROD ~/k6-js-lib/deploy.sh
-
+          name: Deploy lib to s3
+          command: ~/k6-js-lib/deploy.sh
 
 workflows:
   version: 2
   build-deploy:
     jobs:
-      # - build:
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      #           - develop
-      - deploy-to-staging:
-          # requires:
-          #   - build
-          filters:
-            branches:
-              only: develop
-      - deploy-to-production:
-          # requires:
-          #   - build
+      - deploy:
           filters:
             branches:
               only: master
