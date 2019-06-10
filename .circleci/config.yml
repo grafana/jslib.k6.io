@@ -6,6 +6,11 @@ jobs:
       - image: circleci/python:3.5
     working_directory: ~/k6-js-lib
     steps:
+      - checkout
+      - persist_to_workspace:
+          root: ~/k6-js-lib
+          paths:
+            - deploy.sh
       - attach_workspace:
           at: ~/k6-js-lib
       - run:
