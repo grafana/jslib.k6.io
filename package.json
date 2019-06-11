@@ -7,7 +7,8 @@
   "scripts": {
     "test": "k6 run tests/basic.js -u 1 -i 1",
     "copy-libs": "node scripts/copy-libs.js",
-    "update-homepage": "node scripts/generate-homepage.js"
+    "update-homepage": "node scripts/generate-homepage.js",
+    "add-pkg": "./scripts/add.sh"
   },
   "dependencies": {
     "form-urlencoded": "^3.0.0",
