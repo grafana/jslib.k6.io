@@ -6,11 +6,20 @@ const fs = require('fs');
 
 function getPkgMeta(pkgName) {
   const packageJSON = require(`../node_modules/${pkgName}/package.json`);
-  const { version, browser } = packageJSON;
+  const { version, browser, main } = packageJSON;
+
+  if (!browser && !main) {
+    throw new Error(`Could not locate entry point for lib name: ${pkgName}`)
+  }
+
+  let modulePath = path.resolve(__dirname, `../node_modules/${pkgName}/`, browser || main);
+  if (!modulePath.includes(".js")) {
+    modulePath = modulePath + ".js";
+  }
 
   return {
     version,
-    main: path.resolve(`../node_modules/${pkgName}/`, browser)
+    main: modulePath
   }
 }
 
@@ -25,16 +34,19 @@ function main() {
 
     if (!supported[name].hasOwnProperty(pkg.version)) {
       result[name] = pkg;
+    } else if (!fs.existsSync(`lib/${name}/${pkg.version}`)) {
+      result[name] = pkg;
     }
   });
 
   if (Object.keys(result).length > 0) {
-    console.log("\n\nDo you want to add the following: ");
+    console.log("\n\nFollowing will be added to lib: ");
     console.table(result);
 
     Object.entries(result).forEach(([name, pkg]) => {
       const path = `lib/${name}/${pkg.version}`;
       fs.mkdirSync(path, { recursive: true });
+
       fs.copyFileSync(pkg.main, `${path}/index.js`);
 
       supportedUpdated[name][pkg.version] = {};

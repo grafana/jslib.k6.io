@@ -5,9 +5,12 @@
   "repository": "git@github.com:loadimpact/k6-js-lib.git",
   "author": "Simon Legander <simon.legander@gmail.com>",
   "scripts": {
-    "test": "k6 run tests/basic.js -u 1 -i 1"
+    "test": "k6 run tests/basic.js -u 1 -i 1",
+    "copy-libs": "node scripts/copy-libs.js",
+    "update-homepage": "node scripts/generate-homepage.js"
   },
   "dependencies": {
+    "form-urlencoded": "^3.0.0",
     "jsonpath": "^1.0.2",
     "papaparse": "^5.0.0"
   }

@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 const fs = require("fs");
 
-const DOMAIN = "jslib.k6.io";
+const DOMAIN = "https://jslib.k6.io";
 
 
 const logo = `

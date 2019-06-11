@@ -44,6 +44,11 @@ fast-levenshtein@~2.0.4:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
+form-urlencoded@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/form-urlencoded/-/form-urlencoded-3.0.0.tgz#7f5da60c0a110c333549aacbaf9f7ded65936ea1"
+  integrity sha512-zSgBjyO5Yo3TCfElJKqlSBGOEq8lZjltZAYqew4X5trf4AbH4sZhBesvywy7IpD1mfbu8JS6733V3zv3YdIW1g==
+
 jsonpath@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/jsonpath/-/jsonpath-1.0.2.tgz#e6aae681d03e9a77b4651d5d96eac5fc63b1fd13"
