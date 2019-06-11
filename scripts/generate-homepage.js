@@ -63,7 +63,7 @@ function main() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="https://jslib.k6.io/favicon.png" sizes="32x32">
-    <title>lib.k6.io - JS std lib</title>
+    <title>jslib.k6.io - JS std lib</title>
     <style> ${fs.readFileSync('./static/styles.css', 'utf-8')}</style>
   </head>
   <body>
