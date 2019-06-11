@@ -55,14 +55,12 @@ a:not(:hover) {
 .page {
   margin: 50px auto;
   max-width: 960px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .page-section {
   padding: 20px 0;
-}
-
-.logo {
-  margin-right: 40px;
 }
 
 .title {
@@ -82,8 +80,23 @@ a:not(:hover) {
 .header {
   padding: 20px 0;
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .logo {
+    margin-right: 40px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 599px) {
+  .logo {
+    margin-bottom: 10px;
+  }
 }
 
 .table {
