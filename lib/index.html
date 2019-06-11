@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://jslib.k6.io/favicon.png" sizes="32x32">
+  <title>lib.k6.io - JS std lib</title>
+  <style>
+    code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+
+    pre.language-js {
+      background: #f7f7f7 !important;
+      margin-bottom: 30px;
+    }
+    .code.language-js {
+      font-size: 13px;
+    }
+
+    body {
+      padding: 0;
+      font-family: -apple-system,Whitney,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+      color: #444
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    h1, h2, h3, p, ul {
+      margin-top: 0;
+    }
+
+    a {
+      color: #106ad5;
+    }
+
+    h2 {
+      font-weight: 500;
+      color: #444;
+    }
+
+    a:not(:hover) {
+      text-decoration: none;
+    }
+
+    .text-blue {
+      color: #218db3;
+    }
+
+    .text-yellow {
+      color: #f0d91e;
+    }
+
+    .page {
+      margin: 50px auto;
+      max-width: 960px;
+    }
+
+    .page-section {
+      padding: 20px 0;
+    }
+
+    .logo {
+      margin-right: 40px;
+    }
+
+    .title {
+      font-size: 60px;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #444;
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 300;
+    }
+
+    .header {
+      padding: 20px 0;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .table {
+      border-collapse: collapse;
+    }
+
+    .table td {
+      border: 1px solid #e6e6e6;
+      padding: 10px;
+      min-width: 130px;
+    }
+
+    .modules-list {
+      list-style: none;
+      padding-left: 0;
+      border-top: 1px solid #e6e6e6;
+      padding: 10px 0;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .modules-list li {
+      padding: 10px;
+      display: flex;
+    }
+
+    .modules-list li p {
+      margin-bottom: 0;
+      margin-right: 10px;
+      min-width: 120px;
+    }
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div class="logo">
+        <svg width="199px" height="142px" viewBox="0 0 199 142">
+          <defs>
+            <path
+              d="M174.53,137.573 C175.036003,137.573 175.465332,137.749332 175.818,138.102 C176.170668,138.454668 176.339333,138.883997 176.324,139.39 C176.324,139.896003 176.143835,140.325332 175.7835,140.678 C175.423165,141.030668 174.990003,141.207 174.484,141.207 C173.993331,141.191667 173.571668,141.007668 173.219,140.655 C172.866332,140.302332 172.697667,139.865336 172.713,139.344 C172.713,138.853331 172.889332,138.431668 173.242,138.079 C173.594668,137.726332 174.023997,137.557667 174.53,137.573 Z M177.842,124.9 L181.2,124.9 L181.2,141 L177.842,141 L177.842,124.9 Z M190.607,124.693 C191.741672,124.693 192.799662,124.911498 193.781,125.3485 C194.762338,125.785502 195.61333,126.37583 196.334,127.1195 C197.05467,127.86317 197.618165,128.737162 198.0245,129.7415 C198.430835,130.745838 198.634,131.815328 198.634,132.95 C198.634,133.916005 198.488335,134.835996 198.197,135.71 C197.905665,136.584004 197.491669,137.373663 196.955,138.079 C196.418331,138.784337 195.77817,139.386164 195.0345,139.8845 C194.29083,140.382836 193.474338,140.739332 192.585,140.954 L190.975,138.217 C191.619003,138.171 192.205497,137.998501 192.7345,137.6995 C193.263503,137.400499 193.719665,137.017169 194.103,136.5495 C194.486335,136.081831 194.785332,135.537503 195,134.9165 C195.214668,134.295497 195.322,133.640003 195.322,132.95 C195.322,132.22933 195.203168,131.547003 194.9655,130.903 C194.727832,130.258997 194.402002,129.699336 193.988,129.224 C193.573998,128.748664 193.079503,128.373001 192.5045,128.097 C191.929497,127.820999 191.297003,127.683 190.607,127.683 C189.916997,127.683 189.284503,127.820999 188.7095,128.097 C188.134497,128.373001 187.636169,128.748664 187.2145,129.224 C186.792831,129.699336 186.463168,130.258997 186.2255,130.903 C185.987832,131.547003 185.869,132.22933 185.869,132.95 C185.869,133.67067 185.987832,134.352997 186.2255,134.997 C186.463168,135.641003 186.792831,136.200664 187.2145,136.676 C187.636169,137.151336 188.134497,137.526999 188.7095,137.803 C189.284503,138.079001 189.916997,138.217 190.607,138.217 L190.607,141.207 C189.472328,141.207 188.414338,140.992335 187.433,140.563 C186.451662,140.133665 185.60067,139.543337 184.88,138.792 C184.15933,138.040663 183.595835,137.162838 183.1895,136.1585 C182.783165,135.154162 182.58,134.084672 182.58,132.95 C182.58,131.815328 182.783165,130.745838 183.1895,129.7415 C183.595835,128.737162 184.15933,127.86317 184.88,127.1195 C185.60067,126.37583 186.451662,125.785502 187.433,125.3485 C188.414338,124.911498 189.472328,124.693 190.607,124.693 Z"
+            />
+          </defs>
+          <g id="Page-2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="Group-3" transform="translate(-257.000000, -1.000000)">
+              <g id="K6.IO" transform="translate(257.000000, 1.000000)">
+                <g id=".IO">
+                  <use fill="#FFFFFF" xlinkHref="#path-1" />
+                  <use fill="#5C5C5C" xlinkHref="#path-1" />
+                </g>
+                <path
+                  d="M156.9,116.8 L155.192,116.8 L147.02,128.5 C146.443997,129.196003 146.000002,129.987996 145.688,130.876 C145.375998,131.764004 145.22,132.699995 145.22,133.684 C145.22,134.860006 145.447998,135.969995 145.904,137.014 C146.360002,138.058005 146.977996,138.969996 147.758,139.75 C148.235339,140.227339 148.762109,140.644005 149.338315,141 L142.649607,141 L134.24,130.084 L132.188,135.736 L136.211632,141 L128.516,141 L128.516,136.132 L143.42,116.8 L136.976,116.8 L128.516,127.852 L128.516,116.8 L123.26,116.8 L123.26,141 L28,141 L0,141 L49.5,42 L63.5,70 L98.5,0 L156.9,116.8 Z M158.780917,120.561835 L169,141 L158.309685,141 C158.885891,140.644005 159.412661,140.227339 159.89,139.75 C160.670004,138.969996 161.281998,138.058005 161.726,137.014 C162.170002,135.969995 162.392,134.860006 162.392,133.684 C162.392,132.675995 162.230002,131.722005 161.906,130.822 C161.581998,129.921996 161.132003,129.112004 160.556,128.392 C159.979997,127.671996 159.302004,127.054003 158.522,126.538 C157.741996,126.021997 156.884005,125.644001 155.948,125.404 L154.832,130.3 C155.624004,130.540001 156.271997,130.989997 156.776,131.65 C157.280003,132.310003 157.532,133.059996 157.532,133.9 C157.532,134.428003 157.436001,134.913998 157.244,135.358 C157.051999,135.802002 156.782002,136.191998 156.434,136.528 C156.085998,136.864002 155.690002,137.127999 155.246,137.32 C154.801998,137.512001 154.328003,137.608 153.824,137.608 C153.319997,137.608 152.840002,137.512001 152.384,137.32 C151.927998,137.127999 151.526002,136.864002 151.178,136.528 C150.829998,136.191998 150.560001,135.802002 150.368,135.358 C150.175999,134.913998 150.08,134.428003 150.08,133.9 C150.08,133.419998 150.169999,132.964002 150.35,132.532 C150.530001,132.099998 150.775998,131.716002 151.088,131.38 L158.780917,120.561835 Z"
+                  fill="#218db3"
+                />
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <h1 class="title"><span class="text-yellow">js</span>lib.<span class="text-blue">K6</span>.io</h1>
+        <p class="description">Useful utility libs for K6 scripts</p>
+      </div>
+    </header>
+    <section class="page-section">
+      <h2>Available libs</h2>
+      <table class="table">
+        <tr>
+          <td>
+            jsonpath
+          </td>
+          <td>
+            <a targtet="_blank" href="https://jslib.k6.io/jsonpath/1.0.2/index.js">1.0.2</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            papaparse
+          </td>
+          <td>
+            <a targtet="_blank" href="https://jslib.k6.io/papaparse/5.0.0/index.js">5.0.0</a>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section class="page-section">
+      <h2>Examples</h2>
+<p>Importing from jslib.k6.io</p>
+<pre><code class="code language-js">// Default import
+import jsonpath from "jslib.k6.io/jsonpath/1.0.2/index.js";
+
+// Single export import
+import { parse } from "jslib.k6.io/papaparse/5.0.0/index.js";
+</code></pre>
+
+<p>Full script showcase</p>
+<pre><code class="code language-js">import { check } from "k6";
+import jsonpath from "jslib.k6.io/jsonpath/1.0.2/index.js"
+
+export const options = {
+  "duration": "10s",
+  "vus": 1
+};
+
+const testData = {
+  user: {
+    name: "Batman"
+  }
+};
+
+export default function() {
+  check(testData, {
+    "JSON path works": () => jsonpath.value(testData, 'user.name') === "Batman"
+  });
+}</code></pre>
+    </section>
+
+    <section class="page-section">
+      <h2>Resources</h2>
+      <ul class="modules-list">
+        <li>
+          <p>
+            <a href="https://docs.k6.io/docs">K6 API docs</a>
+          </p>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    /* PrismJS 1.16.0
+    https://prismjs.com/download.html#themes=prism&languages=clike+javascript */
+    var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(g){var c=/\blang(?:uage)?-([\w-]+)\b/i,a=0,C={manual:g.Prism&&g.Prism.manual,disableWorkerMessageHandler:g.Prism&&g.Prism.disableWorkerMessageHandler,util:{encode:function(e){return e instanceof M?new M(e.type,C.util.encode(e.content),e.alias):Array.isArray(e)?e.map(C.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++a}),e.__id},clone:function n(e,t){var r,a,i=C.util.type(e);switch(t=t||{},i){case"Object":if(a=C.util.objId(e),t[a])return t[a];for(var l in r={},t[a]=r,e)e.hasOwnProperty(l)&&(r[l]=n(e[l],t));return r;case"Array":return a=C.util.objId(e),t[a]?t[a]:(r=[],t[a]=r,e.forEach(function(e,a){r[a]=n(e,t)}),r);default:return e}}},languages:{extend:function(e,a){var n=C.util.clone(C.languages[e]);for(var t in a)n[t]=a[t];return n},insertBefore:function(n,e,a,t){var r=(t=t||C.languages)[n],i={};for(var l in r)if(r.hasOwnProperty(l)){if(l==e)for(var o in a)a.hasOwnProperty(o)&&(i[o]=a[o]);a.hasOwnProperty(l)||(i[l]=r[l])}var s=t[n];return t[n]=i,C.languages.DFS(C.languages,function(e,a){a===s&&e!=n&&(this[e]=i)}),i},DFS:function e(a,n,t,r){r=r||{};var i=C.util.objId;for(var l in a)if(a.hasOwnProperty(l)){n.call(a,l,a[l],t||l);var o=a[l],s=C.util.type(o);"Object"!==s||r[i(o)]?"Array"!==s||r[i(o)]||(r[i(o)]=!0,e(o,n,l,r)):(r[i(o)]=!0,e(o,n,null,r))}}},plugins:{},highlightAll:function(e,a){C.highlightAllUnder(document,e,a)},highlightAllUnder:function(e,a,n){var t={callback:n,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};C.hooks.run("before-highlightall",t);for(var r,i=t.elements||e.querySelectorAll(t.selector),l=0;r=i[l++];)C.highlightElement(r,!0===a,t.callback)},highlightElement:function(e,a,n){for(var t,r="none",i=e;i&&!c.test(i.className);)i=i.parentNode;i&&(r=(i.className.match(c)||[,"none"])[1].toLowerCase(),t=C.languages[r]),e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r,e.parentNode&&(i=e.parentNode,/pre/i.test(i.nodeName)&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r));var l={element:e,language:r,grammar:t,code:e.textContent},o=function(e){l.highlightedCode=e,C.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,C.hooks.run("after-highlight",l),C.hooks.run("complete",l),n&&n.call(l.element)};if(C.hooks.run("before-sanity-check",l),l.code)if(C.hooks.run("before-highlight",l),l.grammar)if(a&&g.Worker){var s=new Worker(C.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(C.highlight(l.code,l.grammar,l.language));else o(C.util.encode(l.code));else C.hooks.run("complete",l)},highlight:function(e,a,n){var t={code:e,grammar:a,language:n};return C.hooks.run("before-tokenize",t),t.tokens=C.tokenize(t.code,t.grammar),C.hooks.run("after-tokenize",t),M.stringify(C.util.encode(t.tokens),t.language)},matchGrammar:function(e,a,n,t,r,i,l){for(var o in n)if(n.hasOwnProperty(o)&&n[o]){if(o==l)return;var s=n[o];s="Array"===C.util.type(s)?s:[s];for(var g=0;g<s.length;++g){var c=s[g],u=c.inside,h=!!c.lookbehind,f=!!c.greedy,d=0,m=c.alias;if(f&&!c.pattern.global){var p=c.pattern.toString().match(/[imuy]*$/)[0];c.pattern=RegExp(c.pattern.source,p+"g")}c=c.pattern||c;for(var y=t,v=r;y<a.length;v+=a[y].length,++y){var k=a[y];if(a.length>e.length)return;if(!(k instanceof M)){if(f&&y!=a.length-1){if(c.lastIndex=v,!(x=c.exec(e)))break;for(var b=x.index+(h?x[1].length:0),w=x.index+x[0].length,A=y,P=v,O=a.length;A<O&&(P<w||!a[A].type&&!a[A-1].greedy);++A)(P+=a[A].length)<=b&&(++y,v=P);if(a[y]instanceof M)continue;N=A-y,k=e.slice(v,P),x.index-=v}else{c.lastIndex=0;var x=c.exec(k),N=1}if(x){h&&(d=x[1]?x[1].length:0);w=(b=x.index+d)+(x=x[0].slice(d)).length;var j=k.slice(0,b),S=k.slice(w),E=[y,N];j&&(++y,v+=j.length,E.push(j));var _=new M(o,u?C.tokenize(x,u):x,m,x,f);if(E.push(_),S&&E.push(S),Array.prototype.splice.apply(a,E),1!=N&&C.matchGrammar(e,a,n,y,v,!0,o),i)break}else if(i)break}}}}},tokenize:function(e,a){var n=[e],t=a.rest;if(t){for(var r in t)a[r]=t[r];delete a.rest}return C.matchGrammar(e,n,a,0,0,!1),n},hooks:{all:{},add:function(e,a){var n=C.hooks.all;n[e]=n[e]||[],n[e].push(a)},run:function(e,a){var n=C.hooks.all[e];if(n&&n.length)for(var t,r=0;t=n[r++];)t(a)}},Token:M};function M(e,a,n,t,r){this.type=e,this.content=a,this.alias=n,this.length=0|(t||"").length,this.greedy=!!r}if(g.Prism=C,M.stringify=function(e,a){if("string"==typeof e)return e;if(Array.isArray(e))return e.map(function(e){return M.stringify(e,a)}).join("");var n={type:e.type,content:M.stringify(e.content,a),tag:"span",classes:["token",e.type],attributes:{},language:a};if(e.alias){var t=Array.isArray(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(n.classes,t)}C.hooks.run("wrap",n);var r=Object.keys(n.attributes).map(function(e){return e+'="'+(n.attributes[e]||"").replace(/"/g,"&quot;")+'"'}).join(" ");return"<"+n.tag+' class="'+n.classes.join(" ")+'"'+(r?" "+r:"")+">"+n.content+"</"+n.tag+">"},!g.document)return g.addEventListener&&(C.disableWorkerMessageHandler||g.addEventListener("message",function(e){var a=JSON.parse(e.data),n=a.language,t=a.code,r=a.immediateClose;g.postMessage(C.highlight(t,C.languages[n],n)),r&&g.close()},!1)),C;var e=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return e&&(C.filename=e.src,C.manual||e.hasAttribute("data-manual")||("loading"!==document.readyState?window.requestAnimationFrame?window.requestAnimationFrame(C.highlightAll):window.setTimeout(C.highlightAll,16):document.addEventListener("DOMContentLoaded",C.highlightAll))),C}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+    Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+    Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},{pattern:/(^|[^.])\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,function:/[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,operator:/-[-=]?|\+[+=]?|!=?=?|<<?=?|>>?>?=?|=(?:==?|>)?|&[&=]?|\|[|=]?|\*\*?=?|\/=?|~|\^=?|%=?|\?|\.{3}/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s])\s*)\/(\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=\s*($|[\r\n,.;})\]]))/,lookbehind:!0,greedy:!0},"function-variable":{pattern:/[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*=>)/i,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*\s*)\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|[^\\`])*`/,greedy:!0,inside:{interpolation:{pattern:/\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.js=Prism.languages.javascript;
+  </script>
+</body>
+</html>
