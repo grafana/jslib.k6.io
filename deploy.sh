@@ -17,5 +17,5 @@ if [ -z $AWS_ACCESS_KEY_ID ] || [ -z $AWS_SECRET_ACCESS_KEY ]; then
 fi
 
 # Change cname to lib.k6.io
-aws s3 sync --delete lib/ s3://k6-simon-cdn.loadimpact.com
-aws cloudfront create-invalidation --distribution-id EIZYH47FAJWWT --paths "/*"
+aws s3 sync --delete lib/ s3://jslib.k6.io
+aws cloudfront create-invalidation --distribution-id EAWDELBNGDLKP --paths "/*"
