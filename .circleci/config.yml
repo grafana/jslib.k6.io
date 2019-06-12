@@ -46,6 +46,10 @@ jobs:
   deploy:
     <<: *defaults
     steps:
+      - persist_to_workspace:
+          root: ~/k6-js-lib
+          paths:
+            - deploy.sh
       - run:
           name: Deploy lib to s3
           command: ~/k6-js-lib/deploy.sh
