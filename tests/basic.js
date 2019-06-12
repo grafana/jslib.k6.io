@@ -23,7 +23,7 @@ function testJsonPath() {
     }
   };
   check(data, {
-    "JSON path works": () => jsonpath.value(data, 'user.name') === "Batman"
+    "jsonpath works": () => jsonpath.value(data, 'user.name') === "Batman"
   });
 }
 
