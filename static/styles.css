@@ -11,7 +11,7 @@ pre.language-js {
 body {
   padding: 0;
   font-family: -apple-system,Whitney,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
-  color: #444
+  color: #444;
 }
 
 *, *::before, *::after {
@@ -73,6 +73,15 @@ a:not(:hover) {
   margin-bottom: 20px;
 }
 
+.logo svg {
+  width: 170px;
+  height: auto;
+}
+
+.logo svg path {
+  fill: #4AAED0;
+}
+
 @media (min-width: 600px) {
   .logo {
     margin-right: 40px;
@@ -122,4 +131,28 @@ a:not(:hover) {
   margin-bottom: 0;
   margin-right: 10px;
   min-width: 120px;
+}
+
+
+.header-icons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-start;
+  list-style: none;
+}
+
+.header-icons li a {
+  padding: 10px;
+  color: #4aaed0;
+  transition: 0.2s;
+  display: block;
+}
+
+.header-icons li a:hover {
+  color: #30829e;
+}
+
+.header-icons li a:active {
+  transform: scale(0.9);
 }

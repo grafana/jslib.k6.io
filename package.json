@@ -7,12 +7,17 @@
   "scripts": {
     "test": "k6 run tests/basic.js -u 1 -i 1",
     "copy-libs": "node scripts/copy-libs.js",
-    "update-homepage": "node scripts/generate-homepage.js",
+    "generate-homepage": "node scripts/generate-homepage.js",
+    "verify-homepage": "node scripts/generate-homepage.js && node scripts/server.js",
+    "develop-homepage": "nodemon --ext css,js,html,json --watch support.json --watch static --watch scripts --exec \"node scripts/generate-homepage.js && node scripts/server.js\"",
     "add-pkg": "./scripts/add.sh"
   },
   "dependencies": {
     "form-urlencoded": "^3.0.0",
     "jsonpath": "^1.0.2",
     "papaparse": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
