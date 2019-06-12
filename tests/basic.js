@@ -1,7 +1,8 @@
 import { check } from "k6";
-import jsonpath from "jslib.k6.io/jsonpath/1.0.2/index.js";
-import { parse, unparse } from "jslib.k6.io/papaparse/5.0.0/index.js";
-import formurlencoded from "jslib.k6.io/form-urlencoded/3.0.0/index.js";
+
+import jsonpath from "../lib/jsonpath/1.0.2/index.js";
+import { parse, unparse } from "../lib/papaparse/5.0.0/index.js";
+import formurlencoded from "../lib/form-urlencoded/3.0.0/index.js";
 
 export const options = {
   "duration": "10s",

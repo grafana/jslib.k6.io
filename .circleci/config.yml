@@ -1,21 +1,48 @@
 version: 2
 
+defaults: &defaults
+  docker:
+    - image: circleci/python:3.5
+      environment:
+        JOBS: 1
+  working_directory: ~/k6-js-lib
+
 jobs:
-  deploy:
-    docker:
-      - image: circleci/python:3.5
-    working_directory: ~/k6-js-lib
+  build:
+    <<: *defaults
     steps:
       - checkout
-      - persist_to_workspace:
-          root: ~/k6-js-lib
-          paths:
-            - deploy.sh
       - attach_workspace:
           at: ~/k6-js-lib
       - run:
           name: Install awscli
           command: sudo pip install awscli
+      - run:
+          name: "Install k6"
+          command: |
+            curl -O -L https://github.com/loadimpact/k6/releases/download/v0.24.0/k6-v0.24.0-linux64.tar.gz;
+            tar -xvzf k6-v0.24.0-linux64.tar.gz;
+            mv k6-v0.24.0-linux64/k6 ~/k6-js-lib/k6
+      - persist_to_workspace:
+          root: ~/k6-js-lib
+          paths:
+            - .
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/k6-js-lib
+      - run:
+          name: Run tests
+          command: ~/k6-js-lib/k6 run tests/basic.js -u 1 -i 1
+
+  deploy:
+    <<: *defaults
+    steps:
+      - persist_to_workspace:
+          root: ~/k6-js-lib
+          paths:
+            - deploy.sh
       - run:
           name: Deploy lib to s3
           command: ~/k6-js-lib/deploy.sh
@@ -24,7 +51,13 @@ workflows:
   version: 2
   build-deploy:
     jobs:
+      - build
+      - test:
+          requires:
+            - build
       - deploy:
+          requires:
+            - test
           filters:
             branches:
               only: master
