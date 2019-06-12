@@ -1,6 +1,11 @@
 # jslib.k6.io
 
-Remote utility JS libs for k6 scripts.
+[jslib.k6.io](http://jslib.k6.io), hosted utility libs for k6 scripts.
+
+
+To make life a little easier during development make sure that the following are installed:
+* node:lts
+* yarn >= 1.13.0
 
 
 ## Installing new package via npm and automagically adding it to libs
