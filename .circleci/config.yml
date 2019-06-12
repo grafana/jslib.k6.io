@@ -5,7 +5,7 @@ defaults: &defaults
     - image: circleci/python:3.5
       environment:
         JOBS: 1
-  working_directory: ~/k6-js-lib
+  working_directory: ~/jslib.k6.io
 
 jobs:
   build:
@@ -13,46 +13,45 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/k6-js-lib
+          at: ~/jslib.k6.io
       - restore_cache:
           keys:
             - v1-dependency-cache-{{ checksum "supported.json" }}
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
       - run:
           name: "Install k6"
           command: |
             curl -O -L https://github.com/loadimpact/k6/releases/download/v0.24.0/k6-v0.24.0-linux64.tar.gz;
             tar -xvzf k6-v0.24.0-linux64.tar.gz;
-            mv k6-v0.24.0-linux64/k6 ~/k6-js-lib/k6
+            mv k6-v0.24.0-linux64/k6 ~/jslib.k6.io/k6
       - save_cache:
           key: v1-dependency-cache-{{ checksum "supported.json" }}
           paths:
             - k6
       - persist_to_workspace:
-          root: ~/k6-js-lib
+          root: ~/jslib.k6.io
           paths:
             - .
+
   test:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/k6-js-lib
+          at: ~/jslib.k6.io
       - run:
           name: Run tests
-          command: ~/k6-js-lib/k6 run tests/basic.js -u 1 -i 1
+          command: ~/jslib.k6.io/k6 run tests/basic.js -u 1 -i 1
 
   deploy:
     <<: *defaults
     steps:
-      - persist_to_workspace:
-          root: ~/k6-js-lib
-          paths:
-            - deploy.sh
+      - attach_workspace:
+          at: ~/jslib.k6.io
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
       - run:
           name: Deploy lib to s3
-          command: ~/k6-js-lib/deploy.sh
+          command: ~/jslib.k6.io/deploy.sh
 
 workflows:
   version: 2
