@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "form-urlencoded": "^3.0.0",
-    "jsonpath": "^1.0.2",
-    "papaparse": "^5.0.0"
+    "jsonpath": "^1.0.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

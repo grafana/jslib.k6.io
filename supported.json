@@ -2,9 +2,6 @@
   "jsonpath": {
     "1.0.2": {}
   },
-  "papaparse": {
-    "5.0.0": {}
-  },
   "form-urlencoded": {
     "3.0.0": {}
   }

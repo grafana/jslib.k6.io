@@ -217,9 +217,6 @@ a:not(:hover) {
       <td>jsonpath</td>
       <td><a target="_blank" href="https://jslib.k6.io/jsonpath/1.0.2/index.js">1.0.2</a></td>
     </tr><tr>
-      <td>papaparse</td>
-      <td><a target="_blank" href="https://jslib.k6.io/papaparse/5.0.0/index.js">5.0.0</a></td>
-    </tr><tr>
       <td>form-urlencoded</td>
       <td><a target="_blank" href="https://jslib.k6.io/form-urlencoded/3.0.0/index.js">3.0.0</a></td>
     </tr>
@@ -233,7 +230,7 @@ a:not(:hover) {
 import jsonpath from "jslib.k6.io/jsonpath/1.0.2/index.js";
 
 // Single export import
-import { parse } from "jslib.k6.io/papaparse/5.0.0/index.js";</code></pre>
+import { nonDefaultExport } from "jslib.k6.io/some-js-pkg/1.0.0/index.js";</code></pre>
           <p>Full script showcase</p>
           <pre><code class="code language-js">import { check } from "k6";
 import jsonpath from "jslib.k6.io/jsonpath/1.0.2/index.js"
