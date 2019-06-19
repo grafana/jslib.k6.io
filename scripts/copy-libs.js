@@ -12,7 +12,7 @@ function getPkgMeta(pkgName) {
     throw new Error(`Could not locate entry point for lib name: ${pkgName}`)
   }
 
-  let modulePath = path.resolve(__dirname, `../node_modules/${pkgName}/`, browser || main);
+  let modulePath = path.resolve(__dirname, `../node_modules/${pkgName}/`, main || browser);
   if (!modulePath.includes(".js")) {
     modulePath = modulePath + ".js";
   }
