@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:loadimpact/k6-js-lib.git",
+  "homepage": "https://jslib.k6.io",
+  "bugs": "https://github.com/loadimpact/k6-js-lib/issues",
   "author": "Simon Legander <simon.legander@gmail.com>",
+  "license": "AGPL-3.0",
   "scripts": {
     "test": "k6 run tests/basic.js -u 1 -i 1",
     "copy-libs": "node scripts/copy-libs.js",
