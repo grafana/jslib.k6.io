@@ -7,9 +7,6 @@ To make life a little easier during development make sure that the following are
 * node >= 11.2.0
 * yarn >= 1.13.0
 
----
-<br>
-
 ## How to add a new JS package
 1. Create a new branch from master.
 2. Create a new lib dir `/lib/{lib_name}`
@@ -37,8 +34,6 @@ To make life a little easier during development make sure that the following are
 10. Merge master. (This will push the updates to S3).
 11. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/{desired_name}.js
 
----
-<br>
 
 ## How to add a new version of a and existing package.
 1. Create a new branch from master.
@@ -69,8 +64,6 @@ To make life a little easier during development make sure that the following are
 9. Merge master. (This will push the updates to S3).
 10. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/{desired_name}.js
 
----
-<br>
 
 ## Updating styling and layout of the "Homepage"
 
@@ -90,8 +83,6 @@ yarn run verify-homepage
 yarn run generate-homepage
 ```
 
----
-<br>
 
 ## Installing new package via npm and automagically adding it to libs
 The outcome of this might vary depeding on the quality of the desired node_module you want to add.
@@ -109,8 +100,6 @@ Once run successfully, make sure that you do the following:
 - Add test case in `/tests/basic.js` to make sure that the ported lib is importable and runnable by k6.
 - Verify that new homepage `/lib/index.html` is legit.
 
----
-<br>
 
 ## Updating a version of a JS package listed in _package.json dependencies_
 Some of the JS packages in `/lib/` can be libraries that exist on NPM today.
