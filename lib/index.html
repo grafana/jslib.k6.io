@@ -227,13 +227,13 @@ a:not(:hover) {
           <h2>Examples</h2>
           <p>Importing from jslib.k6.io</p>
           <pre><code class="code language-js">// Default import
-import jsonpath from "jslib.k6.io/jsonpath/1.0.2/index.js";
+import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js";
 
 // Non default import
-import { nonDefaultExport } from "jslib.k6.io/some-js-pkg/1.0.0/index.js";</code></pre>
+import { nonDefaultExport } from "https://jslib.k6.io/some-js-pkg/1.0.0/index.js";</code></pre>
           <p>Full script showcase</p>
           <pre><code class="code language-js">import { check } from "k6";
-import jsonpath from "jslib.k6.io/jsonpath/1.0.2/index.js"
+import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js"
 
 export const options = {
   "duration": "10s",
