@@ -45,7 +45,8 @@ function renderToString() {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="icon" href="https://jslib.k6.io/favicon.png" sizes="32x32">
+      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="shortcut icon" href="https://jslib.k6.io/favicon.ico" />
       <title>jslib.k6.io - JS std lib</title>
       <style>${styles}</style>
     </head>
@@ -93,12 +94,12 @@ function renderToString() {
           <ul class="list-unstyled">
             <li>
               <p>
-                <a href="https://docs.k6.io/docs/installation">Install k6</a>
+                <a href="https://k6.io/docs/getting-started/installation">Install k6</a>
               </p>
             </li>
             <li>
               <p>
-                <a href="https://docs.k6.io/docs">k6 docs</a>
+                <a href="https://k6.io/docs/">k6 docs</a>
               </p>
             </li>
             <li>
