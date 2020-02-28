@@ -1,0 +1,100 @@
+<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous"
+  href="https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2">
+<style>
+  .container.jumbo {
+    padding-top: 50px;
+    padding-bottom: 152px;
+    font-family: Helvetica Neue;
+  }
+
+  .container.jumbo h1 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 300;
+    margin: 10px 0;
+  }
+
+  .container.jumbo .description {
+    font-size: 20px;
+    color: #444;
+  }
+
+  .jumbo .terminal {
+    position: absolute;
+    top: -80px;
+    right: 0;
+    max-width: 675px;
+    width: 675px;
+    background-color: rgb(60, 60, 100);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+
+  .jumbo .terminal .terminal-header {
+    width: 100%;
+    background-color: #5a5c87;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 0 10px;
+    -webkit-transition: .2s ease;
+    transition: .2s ease;
+    border: 1px solid #5a5c87;
+  }
+
+  .jumbo .terminal .button {
+    display: block;
+    background-color: #fff;
+    opacity: .1;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .jumbo .terminal .button:not(:last-child) {
+    margin-right: 5px;
+  }
+
+  .jumbo code.code {
+    font-size: .8em;
+  }
+</style>
+<div class="wrapper">
+  <div class="container jumbo">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <h1 class="title">JS Libraries</h1>
+        <p class="description">Useful utility libs for k6 scripts</p>
+      </div>
+      <div class="col-md d-none d-sm-none d-md-none d-lg-block">
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="button"></span>
+            <span class="button"></span>
+            <span class="button"></span>
+          </div>
+          <div class="content">
+            <pre><code class="code language-js">import { check } from "k6";
+import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js"
+
+export const options = {
+  "duration": "10s",
+  "vus": 1
+};
+
+const testData = {
+  user: { name: "Batman" }
+};
+
+export default function() {
+  check(testData, {
+    "JSON path works": () => jsonpath.value(testData, 'user.name') === "Batman"
+  });
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
