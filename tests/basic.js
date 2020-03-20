@@ -32,7 +32,6 @@ function testPapaparse() {
   };
 
   let parsed = papaparse.parse(csvString, config);
-  console.log(JSON.stringify(parsed));
 
   failedChecks.add(!check(parsed, {
     "papaparse works": (data) =>  parsed.data[0].crocodileName === "Bert"
