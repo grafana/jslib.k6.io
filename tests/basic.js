@@ -81,4 +81,5 @@ export default function() {
   testPapaparse();
   testRandomBetween();
   testRandomItem();
+  testuuidv4();
 }
