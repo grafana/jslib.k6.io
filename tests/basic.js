@@ -4,6 +4,8 @@ import { Counter } from 'k6/metrics';
 import jsonpath from "../lib/jsonpath/1.0.2/index.js";
 import formurlencoded from "../lib/form-urlencoded/3.0.0/index.js";
 import papaparse from "../lib/papaparse/5.1.1/index.js";
+import { randomIntBetween, randomItem, uuidv4 } from "../lib/k6-utils/1.0.0/index.js";
+
 
 export let failedChecks = new Counter('failedChecks');
 
@@ -49,8 +51,34 @@ function testFormurlencoded() {
   }));
 }
 
+function testRandomBetween(){
+  let randomInt = randomIntBetween(1,1);
+  console.log(randomInt);
+  failedChecks.add(!check(randomInt, {
+    "randomBetween works": (r) => r === 1,
+  }));
+}
+
+function testRandomItem(){
+  let items = [1,2,3,4];
+
+  failedChecks.add(!check(randomItem(items), {
+    "randomItem works": (item) => items.includes(item),
+  }));
+}
+
+function testuuidv4(){
+
+  failedChecks.add(!check(uuidv4(), {
+    "uuidv4 works": (val) => val.length === 36,
+  }));
+}
+
+
 export default function() {
   testJsonPath();
   testFormurlencoded();
   testPapaparse();
+  testRandomBetween();
+  testRandomItem();
 }
