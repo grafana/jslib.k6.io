@@ -430,21 +430,16 @@ a:not(:hover) {
           </div>
           <div class="content">
             <pre><code class="code language-js">import { check } from "k6";
-import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js"
+import { randomIntBetween, randomItem } from "https://jslib.k6.io/k6-utils/1.0.0/index.js";
 
 export const options = {
   "duration": "10s",
   "vus": 1
 };
 
-const testData = {
-  user: { name: "Batman" }
-};
-
 export default function() {
-  check(testData, {
-    "JSON path works": () => jsonpath.value(testData, 'user.name') === "Batman"
-  });
+  console.log(randomItem([1,2,3,4]));
+  sleep(randomIntBetween(1,5)); // sleep between 1 and 5 seconds
 }</code></pre>
           </div>
         </div>
@@ -459,6 +454,9 @@ export default function() {
           
     <table class="table">
       <tr>
+      <td>k6-utils</td>
+      <td><a target="_blank" href="https://jslib.k6.io/k6-utils/1.0.0/index.js">1.0.0</a></td>
+    </tr><tr>
       <td>jsonpath</td>
       <td><a target="_blank" href="https://jslib.k6.io/jsonpath/1.0.2/index.js">1.0.2</a></td>
     </tr><tr>
@@ -480,8 +478,9 @@ import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js";
 // Non default import
 import { nonDefaultExport } from "https://jslib.k6.io/some-js-pkg/1.0.0/index.js";</code></pre>
           <p>Full script showcase</p>
-          <pre><code class="code language-js">import { check } from "k6";
+          <pre><code class="code language-js">import { check, sleep } from "k6";
 import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js"
+import { randomIntBetween, randomItem, uuidv4 } from "https://jslib.k6.io/k6-utils/1.0.0/index.js";
 
 export const options = {
   "duration": "10s",
@@ -498,6 +497,11 @@ export default function() {
   check(testData, {
     "JSON path works": () => jsonpath.value(testData, 'user.name') === "Batman"
   });
+
+  console.log(uuidv4());
+  console.log(randomItem([1,2,3,4]));
+
+  sleep(randomIntBetween(1,5)); // sleep between 1 and 5 seconds
 }</code></pre>
         </section>
         <section class="page-section">
