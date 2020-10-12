@@ -8,6 +8,7 @@ import { testJsonPath,
          testuuidv4 } from './basic.js'
 import {papaparseTest} from "./papaparseRedingFile.js";
 import {httpxBatchTest} from "./httpx.js";
+import {newAjv} from "./ajv-test.js";
 
 export const options = {
   iterations: 1,
@@ -26,5 +27,5 @@ export default function() {
   testuuidv4();
   papaparseTest();
   httpxBatchTest();
-
+  newAjv();
 }
