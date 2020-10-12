@@ -9,10 +9,7 @@ export let options = {
   iterations: 1,
 };
 
-
-
-let session = new Httpx();
-session.setBaseUrl('https://test-api.k6.io');
+let session = new Httpx({baseURL: 'https://test-api.k6.io'});
 
 export default function testSuite() {
 
