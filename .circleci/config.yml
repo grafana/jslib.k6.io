@@ -39,7 +39,7 @@ jobs:
           at: ~/jslib.k6.io
       - run:
           name: Run tests
-          command: ~/jslib.k6.io/k6 run tests/basic.js -u 1 -i 1
+          command: ~/jslib.k6.io/k6 run tests/testSuite.js -u 1 -i 1
 
   deploy:
     <<: *defaults
