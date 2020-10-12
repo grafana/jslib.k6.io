@@ -9,6 +9,7 @@ import { testJsonPath,
 import {papaparseTest} from "./papaparseRedingFile.js";
 import {httpxBatchTest} from "./httpx.js";
 import {newAjv} from "./ajv-test.js";
+import { CrocFlow } from "./crocFlow.js";
 
 export const options = {
   iterations: 1,
@@ -28,4 +29,5 @@ export default function() {
   papaparseTest();
   httpxBatchTest();
   newAjv();
+  CrocFlow();
 }
