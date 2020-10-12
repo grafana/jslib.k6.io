@@ -3,23 +3,22 @@ import { Httpx, Get } from '../lib/httpx/0.0.1/index.js';
 import { randomIntBetween, randomItem } from "../lib/k6-utils/1.0.0/index.js";
 import { crocodileAPIcontract, crocodileListAPIcontract } from './data/contracts.js'
 
-export let options = {
-  thresholds: {
-    'http_req_duration{name:PublicCrocs}': ['p(90)<200'],
-    checks: [{threshold: 'rate == 1.00', abortOnFail: false}], // change to "true" to stop on a first failure
-    "checks{value:200}": [{threshold: 'rate == 1.00', abortOnFail: false}], // change to "true" to stop on first failure
-  },
-  vus: 1,
-  iterations: 1,
-};
+// export let options = {
+//   thresholds: {
+//     'http_req_duration{name:PublicCrocs}': ['p(90)<200'],
+//     checks: [{threshold: 'rate == 1.00', abortOnFail: false}], // change to "true" to stop on a first failure
+//     "checks{value:200}": [{threshold: 'rate == 1.00', abortOnFail: false}], // change to "true" to stop on first failure
+//   },
+//   vus: 1,
+//   iterations: 1,
+// };
 
 const USERNAME = `user${randomIntBetween(1, 100000)}@example.com`;  // Set your own email;
 const PASSWORD = 'superCroc2019';
 
-let session = new Httpx();
-session.setBaseUrl('https://test-api.k6.io');
+let session = new Httpx({baseURL: 'https://test-api.k6.io'});
 
-export default function testSuite() {
+function CrocFlow() {
 
   test('Fetch public crocs', (t) => {
     let responses = session.batch([
@@ -130,3 +129,6 @@ export default function testSuite() {
 
 }
 
+export {
+  CrocFlow
+}
