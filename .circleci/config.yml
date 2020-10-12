@@ -20,9 +20,9 @@ jobs:
       - run:
           name: "Install k6"
           command: |
-            curl -O -L https://github.com/loadimpact/k6/releases/download/v0.25.0/k6-v0.25.0-linux64.tar.gz;
-            tar -xvzf k6-v0.25.0-linux64.tar.gz;
-            mv k6-v0.25.0-linux64/k6 ~/jslib.k6.io/k6
+            curl -O -L https://github.com/loadimpact/k6/releases/download/v0.28.0/k6-v0.28.0-linux64.tar.gz;
+            tar -xvzf k6-v0.28.0-linux64.tar.gz;
+            mv k6-v0.28.0-linux64/k6 ~/jslib.k6.io/k6
       - save_cache:
           key: v1-dependency-cache-{{ checksum "supported.json" }}
           paths:
