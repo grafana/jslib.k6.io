@@ -17,6 +17,7 @@
     "bundle": "./scripts/bundle.js"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "form-urlencoded": "^3.0.0",
     "jsonpath": "^1.0.2"
   },
