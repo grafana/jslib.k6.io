@@ -13,13 +13,32 @@
     "generate-homepage": "node scripts/generate-homepage.js",
     "verify-homepage": "node scripts/generate-homepage.js && node scripts/server.js",
     "develop-homepage": "nodemon --ext css,js,html,json --watch support.json --watch static --watch scripts --exec \"node scripts/generate-homepage.js && node scripts/server.js\"",
-    "add-pkg": "./scripts/add.sh"
+    "add-pkg": "./scripts/add.sh",
+    "bundle": "./scripts/bundle.js"
   },
   "dependencies": {
     "form-urlencoded": "^3.0.0",
     "jsonpath": "^1.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
-  }
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^1.19.1",
+    "webpack": "^5.3.2"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs"
+      }
+    ]
+  ]
 }
