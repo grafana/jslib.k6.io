@@ -23,14 +23,15 @@ function ask(question) {
 }
 
 async function main() {
-  const pkgName = 'url'
-  const pkgVersion = '1.0.0'
+  const pkgString = process.argv.slice(-1)[0]
+  const [pkgName = '', pkgVersion = ''] = pkgString.split('@')
 
   const basePath = `lib/${pkgName}/${pkgVersion}`
   const entryPath = `${basePath}/index.src.js`
 
   if (!fs.existsSync(entryPath)) {
-    throw new Error(`No "index.src.js" file located at ${basePath}`)
+    console.error(`No "index.src.js" file located at ${basePath}`)
+    process.exit(1)
   }
 
   if (fs.existsSync(`${basePath}/index.js`)) {
