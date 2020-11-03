@@ -74,7 +74,7 @@ async function main() {
   compiler.run((err, stats) => {
     if (err || stats.hasErrors()) {
       console.log(err)
-      throw new Error('Unable to compile bundle.')
+      process.exit(1)
     }
 
     console.log(`\nBundle generated at ${basePath}/index.js`)
