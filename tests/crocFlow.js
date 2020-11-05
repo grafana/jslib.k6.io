@@ -1,17 +1,7 @@
-import { test } from '../lib/functional/0.0.1/index.js';
-import { Httpx, Get } from '../lib/httpx/0.0.1/index.js';
+import { test } from '../lib/functional/0.0.2/index.js';
+import { Httpx, Get } from '../lib/httpx/0.0.3/index.js';
 import { randomIntBetween, randomItem } from "../lib/k6-utils/1.0.0/index.js";
 import { crocodileAPIcontract, crocodileListAPIcontract } from './data/contracts.js'
-
-// export let options = {
-//   thresholds: {
-//     'http_req_duration{name:PublicCrocs}': ['p(90)<200'],
-//     checks: [{threshold: 'rate == 1.00', abortOnFail: false}], // change to "true" to stop on a first failure
-//     "checks{value:200}": [{threshold: 'rate == 1.00', abortOnFail: false}], // change to "true" to stop on first failure
-//   },
-//   vus: 1,
-//   iterations: 1,
-// };
 
 const USERNAME = `user${randomIntBetween(1, 100000)}@example.com`;  // Set your own email;
 const PASSWORD = 'superCroc2019';
