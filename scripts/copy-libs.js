@@ -59,7 +59,7 @@ function main() {
       supportedUpdated[name][pkg.version] = {};
     });
 
-    fs.writeFileSync("./supported.json", JSON.stringify(supportedUpdated, null, 2));
+    fs.writeFileSync(`${appDir}/supported.json`, JSON.stringify(supportedUpdated, null, 2));
   }
 }
 
