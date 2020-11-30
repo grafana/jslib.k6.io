@@ -56,7 +56,7 @@ function main() {
 
       fs.copyFileSync(pkg.main, `${path}/index.js`);
 
-      supportedUpdated[name][pkg.version] = {};
+      supportedUpdated[name].push(pkg.version);
     });
 
     fs.writeFileSync(`${appDir}/supported.json`, JSON.stringify(supportedUpdated, null, 2));
