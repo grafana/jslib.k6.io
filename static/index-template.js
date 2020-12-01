@@ -17,7 +17,7 @@ const versionsTable = () => {
   const supported = require('../supported.json');
   const trs = Object.entries(supported)
     .map(([name, versionsMap]) => {
-      const versionLinks = Object.keys(versionsMap)
+      const versionLinks = versionsMap
         .map(version => createLink(name, version, 'index.js'))
         .join(', ');
       return `<tr>
@@ -40,7 +40,7 @@ const codeExample = name => {
 };
 
 function renderToString() {
-  const markup = `
+  return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -98,8 +98,6 @@ function renderToString() {
     </body>
     </html>
   `;
-
-  return markup;
 }
 
 module.exports = { renderToString };

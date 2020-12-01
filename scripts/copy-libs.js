@@ -3,9 +3,15 @@
 const path = require('path');
 const supported = require('../supported.json');
 const fs = require('fs');
+const appDir = path.resolve(__dirname, `../`)
 
 function getPkgMeta(pkgName) {
-  const packageJSON = require(`../node_modules/${pkgName}/package.json`);
+  const modulePackage = `${appDir}/node_modules/${pkgName}/package.json`;
+  if (!fs.existsSync(modulePackage)) {
+    return null;
+  }
+
+  const packageJSON = require(`${appDir}/node_modules/${pkgName}/package.json`);
   const { version, browser, main } = packageJSON;
 
   if (!browser && !main) {
@@ -31,28 +37,29 @@ function main() {
 
   packages.forEach(name => {
     const pkg = getPkgMeta(name);
-
-    if (!supported[name].hasOwnProperty(pkg.version)) {
-      result[name] = pkg;
-    } else if (!fs.existsSync(`lib/${name}/${pkg.version}`)) {
-      result[name] = pkg;
+    if (pkg) {
+      if (!supported[name].hasOwnProperty(pkg.version)) {
+        result[name] = pkg;
+      } else if (!fs.existsSync(`${appDir}/lib/${name}/${pkg.version}`)) {
+        result[name] = pkg;
+      }
     }
   });
 
   if (Object.keys(result).length > 0) {
-    console.log("\n\nFollowing will be added to lib: ");
+    console.log('\n\nFollowing will be added to lib: ');
     console.table(result);
 
     Object.entries(result).forEach(([name, pkg]) => {
-      const path = `lib/${name}/${pkg.version}`;
+      const path = `${appDir}/lib/${name}/${pkg.version}`;
       fs.mkdirSync(path, { recursive: true });
 
       fs.copyFileSync(pkg.main, `${path}/index.js`);
 
-      supportedUpdated[name][pkg.version] = {};
+      supportedUpdated[name].push(pkg.version);
     });
 
-    fs.writeFileSync("./supported.json", JSON.stringify(supportedUpdated, null, 2));
+    fs.writeFileSync(`${appDir}/supported.json`, JSON.stringify(supportedUpdated, null, 2));
   }
 }
 

@@ -12,21 +12,17 @@ To make life a little easier during development make sure that the following are
 1. Create a new branch from master.
 2. Create a new lib dir `/lib/{lib_name}`
 3. Create a new version dir `/lib/{lib_name}/{desired_version}/`
-4. Add a entry file `/lib/{lib_name}/{desired_version}/{desired_name}.js`
+4. Add an entry file `/lib/{lib_name}/{desired_version}/index.js`
 5. Add the lib to `supported.json` (see example below):
 
 ```javascript
 {
-  "{lib_name}": {
-    "{desired_version}": {}
-  }
+  "{lib_name}": ["{desired_version}"]
 }
 
 // Example result
 {
-  "awesome-lib": {
-    "2.0.3": {}
-  }
+  "awesome-lib": ["2.0.3"]
 }
 ```
 
@@ -35,7 +31,7 @@ To make life a little easier during development make sure that the following are
 8. Verify that new homepage `/lib/index.html` is legit (Quickly done by running `yarn run verify-homepage`).
 9. Create a PR, get approved etc..
 10. Merge master. (This will push the updates to S3).
-11. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/{desired_name}.js
+11. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js
 
 ## Add a JS package that requires bundling
 
@@ -55,24 +51,24 @@ yarn run bundle url@1.0.0
 
 1. Create a new branch from master.
 2. Create a new "version dir" in `/lib/{lib_name}/{desired_version}/`
-3. Add entry file for version `/lib/{lib_name}/{desired_version}/{desired_name}.js`
+3. Add entry file for version `/lib/{lib_name}/{desired_version}/index.js`
 4. Add the version to `supported.json` like:
 
 ```javascript
 {
-  "my-lib": {
-    "1.0.2": {},
+  "my-lib": [
+    "1.0.2",
     // Use semantic versioning
-    "{desired_version}": {}
-  }
+    "{desired_version}"
+  ]
 }
 
 // Example result
 {
-  "my-lib": {
-    "1.0.2": {},
-    "2.0.3": {}
-  }
+  "my-lib": [
+    "1.0.2",
+    "2.0.3"
+  ]
 }
 ```
 
@@ -81,7 +77,7 @@ yarn run bundle url@1.0.0
 7. Verify that new homepage `/lib/index.html` is legit (Quickly done by running `yarn run verify-homepage`).
 8. Create a PR, get approved etc..
 9. Merge master. (This will push the updates to S3).
-10. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/{desired_name}.js
+10. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js
 
 ## Updating styling and layout of the "Homepage"
 
@@ -135,10 +131,10 @@ If all went well the following should have happened:
 
 ```javascript
 {
-  "my_package": {
-    "1.0.2": {}, // Previous version
-    "2.0.0": {} // New version added by copy-libs command.
-  }
+  "my_package": [
+    "1.0.2", // Previous version
+    "2.0.0" // New version added by copy-libs command.
+  ]
 }
 ```
 
@@ -151,4 +147,4 @@ Once a new version dir has been created and added to `supported.json` it is time
 5. Verify that new homepage `/lib/index.html` is legit (Quickly done by running `yarn run verify-homepage`).
 6. Create a PR, get approved etc..
 7. Merge master. (This will push the updates to S3).
-8. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/{desired_name}.js
+8. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js
