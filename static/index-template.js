@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs');
+const createFont = require('../scripts/create-base64-font');
 
 const bootstrap = fs.readFileSync('./static/bootstrap.css', 'utf-8');
 const styles = fs.readFileSync('./static/styles.css', 'utf-8');
@@ -29,6 +30,12 @@ const versionsTable = () => {
 
   return `
     <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Version(s)</th>
+        </tr>
+      </thead>
       ${trs}
     </table>
   `;
@@ -47,9 +54,30 @@ function renderToString() {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
       <link rel="shortcut icon" href="https://jslib.k6.io/favicon.ico" />
       <title>jslib.k6.io - JS std lib</title>
+      <style>
+      
+        @font-face {
+          font-family: 'TTNormsPro';
+          font-weight: 600;
+          src: ${createFont('tt-pro-bold')}
+        }
+
+        @font-face {
+          font-family: 'TTNormsPro';
+          font-weight: 500;
+          src: ${createFont('tt-pro-medium')}
+        }
+  
+        @font-face {
+          font-family: 'TTNormsPro';
+          font-weight: 400;
+          src: ${createFont('tt-pro-regular')}
+        }
+      </style>
       <style>
         ${bootstrap}
         ${styles}

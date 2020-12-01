@@ -30,15 +30,12 @@
 }
 
 pre.language-js {
-  color: #fff;
   background: none;
-  font-size: 1em;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -46,15 +43,12 @@ pre.language-js {
   -ms-hyphens: none;
   hyphens: none;
   background: #3c3c64;
-
   display: block;
   text-shadow: none;
-  padding-right: 15px;
   font-family: Roboto Mono, sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #e2e2e2;
-
   padding: 15px 20px;
   -webkit-font-smoothing: antialiased;
 }
@@ -95,9 +89,7 @@ pre.language-js {
 
 body {
   margin: 0;
-  font-family: -apple-system, Whitney, BlinkMacSystemFont, segoe ui, Roboto,
-    Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji,
-    segoe ui symbol;
+  font-family: TTNormsPro, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: #444;
 }
 
@@ -194,13 +186,30 @@ a:not(:hover) {
 }
 
 .table {
+  border: 1px solid #ece8f1;
   border-collapse: collapse;
+  width: 100%;
+}
+
+.table thead th {
+  padding: 10px 20px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: left;
+  color: #5a5c87;
+  background: #f9f8fc;
+  border-bottom: 1px solid #ece8f1;
 }
 
 .table td {
-  border: 1px solid #e6e6e6;
-  padding: 10px;
   min-width: 130px;
+  padding: 20px;
+  font-size: 15px;
+  vertical-align: baseline;
+  line-height: 25px;
+  border-bottom: 1px solid #ece8f1;
 }
 
 .list-unstyled {
@@ -210,7 +219,6 @@ a:not(:hover) {
 
 .modules-list {
   list-style: none;
-  padding-left: 0;
   border-top: 1px solid #e6e6e6;
   padding: 10px 0;
   border-bottom: 1px solid #e6e6e6;
@@ -257,4 +265,63 @@ a:not(:hover) {
   word-wrap: normal;
   white-space: pre;
   max-width: 100%;
+}
+
+/* From the docs */
+body {
+  font-size: 17px;
+  line-height: 25px;
+  color: #3c3c64;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: #7d64ff;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  padding-bottom: 1px;
+  border-bottom: 1px solid rgba(125,100,255,0);
+  transition: all .3s;
+}
+a:hover {
+  text-decoration: none;
+}
+a:not([class=no-hover]):hover {
+  color: #7d64ff;
+  border-bottom: 1px solid rgba(125,100,255,.5);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 400;
+  margin: 30px 0 15px 0;
+}
+
+code {
+  font-family: 'Roboto Mono',SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+.code-toolbar {
+  position: relative;
+}
+
+.code-toolbar button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 5px 2px 6px;
+  background-color: #5a5c87;
+  border-radius: 2px;
+  height: 20px;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
 }
