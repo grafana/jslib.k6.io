@@ -1,12 +1,28 @@
-var testSummary = require('./summary.js').test;
+var Rate = require('k6/metrics').Rate;
+
+var testCasesOK = new Rate('test_case_ok');
+
+var testCases = [
+  require('./summary.js').test,
+];
+
 
 exports.options = {
-  iterations: 1,
+  vus: 1,
+  iterations: testCases.length,
   thresholds: {
     checks: ['rate==1.0'],
+    test_case_ok: ['rate==1.0'],
   },
 };
 
+
 exports.default = function () {
-  testSummary();
+  try {
+    testCases[__ITER]();
+    testCasesOK.add(true);
+  } catch (e) {
+    testCasesOK.add(false);
+    throw e;
+  }
 }
