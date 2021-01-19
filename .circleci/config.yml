@@ -20,9 +20,9 @@ jobs:
       - run:
           name: "Install k6"
           command: |
-            curl -O -L https://github.com/loadimpact/k6/releases/download/v0.28.0/k6-v0.28.0-linux64.tar.gz;
-            tar -xvzf k6-v0.28.0-linux64.tar.gz;
-            mv k6-v0.28.0-linux64/k6 ~/jslib.k6.io/k6
+            curl -O -L https://github.com/loadimpact/k6/releases/download/v0.29.0/k6-v0.29.0-linux64.tar.gz;
+            tar -xvzf k6-v0.29.0-linux64.tar.gz;
+            mv k6-v0.29.0-linux64/k6 ~/jslib.k6.io/k6
       - save_cache:
           key: v1-dependency-cache-{{ checksum "supported.json" }}
           paths:
@@ -32,7 +32,7 @@ jobs:
           paths:
             - .
 
-  test:
+  test-extended:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -40,6 +40,15 @@ jobs:
       - run:
           name: Run tests
           command: ~/jslib.k6.io/k6 run tests/testSuite.js -u 1 -i 1
+
+  test-base:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/jslib.k6.io
+      - run:
+          name: Run tests with compatibility-mode=base
+          command: ~/jslib.k6.io/k6 run --compatibility-mode=base tests/testSuiteBase.js -u 1 -i 1
 
   deploy:
     <<: *defaults
@@ -58,12 +67,16 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - test:
+      - test-extended:
+          requires:
+            - build
+      - test-base:
           requires:
             - build
       - deploy:
           requires:
-            - test
+            - test-extended
+            - test-base
           filters:
             branches:
               only: master
