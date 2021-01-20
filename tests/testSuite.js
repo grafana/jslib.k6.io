@@ -1,5 +1,6 @@
 import { check } from 'k6'
-import { Counter } from 'k6/metrics'
+import { Rate } from 'k6/metrics'
+
 import {
   testJsonPath,
   testFormurlencoded,
@@ -14,23 +15,29 @@ import { newAjv } from './ajv-test.js'
 import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 
+
+let testCasesOK = new Rate('test_case_ok');
+
+const testCases = [
+  URLWebAPI, testJsonPath, testFormurlencoded, testPapaparse, testRandomBetween,
+  testRandomItem, testuuidv4, papaparseTest, httpxBatchTest, newAjv, CrocFlow
+];
+
 export const options = {
-  iterations: 1,
+  vus: 1,
+  iterations: testCases.length,
   thresholds: {
     checks: ['rate==1.0'],
+    test_case_ok: ['rate==1.0'],
   },
 }
 
 export default function () {
-  URLWebAPI()
-  testJsonPath()
-  testFormurlencoded()
-  testPapaparse()
-  testRandomBetween()
-  testRandomItem()
-  testuuidv4()
-  papaparseTest()
-  httpxBatchTest()
-  newAjv()
-  CrocFlow()
+  try {
+    testCases[__ITER]();
+    testCasesOK.add(true);
+  } catch (e) {
+    testCasesOK.add(false);
+    throw e;
+  }
 }

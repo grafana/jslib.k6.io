@@ -2,7 +2,7 @@ import { check, group } from 'k6'
 import { URL, URLSearchParams } from '../lib/url/1.0.0/index.js'
 const _ = undefined
 
-export default function URLWebAPI() {
+export function URLWebAPI() {
   group('URL interface', () => {
     const testURLPath = `/with/path?foo=bar`
     const testURLBase = `https://test.k6.io`
