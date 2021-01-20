@@ -1,9 +1,6 @@
 var check = require('k6').check
 
 var summary = require('../lib/k6-summary/0.0.1/index.js')
-var humanizeValue = summary.humanizeValue
-var textSummary = summary.textSummary
-var jUnit = summary.jUnit
 
 function D(nanosecondDuration) {
   return nanosecondDuration / 1000000.0 // in msec
@@ -179,7 +176,7 @@ var timeUnits = ['', 's', 'ms', 'us']
 
 function runHumanizeValueTestCase(metric, value, expResults) {
   for (var i = 0; i < timeUnits.length; i++) {
-    var result = humanizeValue(value, metric, timeUnits[i])
+    var result = summary.humanizeValue(value, metric, timeUnits[i])
     var checks = {
       'humanized value is equal to expected': function (res) {
         return res === expResults[i]
@@ -205,7 +202,7 @@ function runHumanizeValueTestCase(metric, value, expResults) {
   }
 }
 
-function testHumanizeValue() {
+exports.testHumanizeValue = function () {
   for (var tc = 0; tc < humanizeValueTestCases.length; tc++) {
     var testCase = humanizeValueTestCases[tc]
     var metric = { type: testCase.type, contains: testCase.contains }
@@ -215,8 +212,24 @@ function testHumanizeValue() {
   }
 }
 
-//TODO: tests for the actual summary functions
+var rawData = JSON.parse(open('./data/summary/raw-data.json'))
+var expTextColorOutput = open('./data/summary/exp-text-color.txt')
+var textColorOldk6Output = open('./data/summary/text-color-old-from-k6.txt')
 
-exports.test = function () {
-  testHumanizeValue()
+exports.testTextSummary = function () {
+  var resultColor = summary.textSummary(rawData, { indent: ' ', enableColors: true })
+  var resultNoColor = summary.textSummary(rawData, { indent: ' ', enableColors: false })
+  check(null, {
+    'color text result matches expected': function () {
+      return expTextColorOutput === resultColor
+    },
+    'nocolor text result matches expected': function () {
+      return expTextColorOutput.replace(/\x1b\[[\d;]+m/g, '') === resultNoColor
+    },
+    'nocolor text result matches old k6 nocolor': function () {
+      return textColorOldk6Output.replace(/\u001b\[[\d;]*m/g, '') === resultNoColor
+    },
+  })
 }
+
+//TODO: add some JUnit tests
