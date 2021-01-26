@@ -8,6 +8,9 @@
   "jsonpath": [
     "1.0.2"
   ],
+  "formdata": [
+    "0.0.1"
+  ],
   "form-urlencoded": [
     "3.0.0"
   ],

@@ -2,7 +2,11 @@ var Rate = require('k6/metrics').Rate
 
 var testCasesOK = new Rate('test_case_ok')
 
-var testCases = [require('./summary.js').testHumanizeValue, require('./summary.js').testTextSummary]
+var testCases = [
+  require('./summary.js').testHumanizeValue,
+  require('./summary.js').testTextSummary,
+  require('./formdata.js').testPost,
+]
 
 exports.options = {
   vus: 1,
