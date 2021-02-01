@@ -7,7 +7,7 @@ var logo = open('./data/logo.png', 'b');
 exports.testPost = function() {
   var fd = new FormData();
   fd.append('binArray', http.file(logo, 'logo.png', 'image/png'));
-  fd.append('ArrayBuffer', http.file(new Uint8Array(logo).buffer, 'logo.png', 'image/png'));
+  fd.append('ArrayBuffer', { data:new Uint8Array(logo).buffer, filename: 'logo.png', content_type: 'image/png' });
   fd.append('text', http.file('hello', 'hello.txt', 'text/plain'));
   var res = http.post('https://httpbin.test.k6.io/post', fd.body(),
                       { headers: { 'Content-Type': 'multipart/form-data; boundary=' + fd.boundary }});
