@@ -17,13 +17,15 @@ const createLink = (name, version, main) => {
 const versionsTable = () => {
   const supported = require('../supported.json');
   const trs = Object.entries(supported)
-    .map(([name, versionsMap]) => {
-      const versionLinks = versionsMap
+    .map(([name, lib]) => {
+      const versionLinks = lib.versions
         .map(version => createLink(name, version, 'index.js'))
         .join(', ');
+        docsLink = lib['docs-url'] ? `<a href="${lib['docs-url']}">${lib['docs-url']}</a>`: "";
       return `<tr>
       <td>${name}</td>
       <td>${versionLinks}</td>
+      <td>${docsLink}</td>
     </tr>`;
     })
     .join('');
@@ -34,6 +36,7 @@ const versionsTable = () => {
         <tr>
           <th>Name</th>
           <th>Version(s)</th>
+          <th>Docs</th>
         </tr>
       </thead>
       ${trs}

@@ -1,37 +1,65 @@
 {
-  "k6-utils": [
-    "1.0.0"
-  ],
-  "k6-summary": [
-    "0.0.1"
-  ],
-  "jsonpath": [
-    "1.0.2"
-  ],
-  "formdata": [
-    "0.0.1",
-    "0.0.2"
-  ],
-  "form-urlencoded": [
-    "3.0.0"
-  ],
-  "papaparse": [
-    "5.1.1"
-  ],
-  "ajv": [
-    "6.12.5"
-  ],
-  "httpx": [
-    "0.0.1",
-    "0.0.2",
-    "0.0.3"
-  ],
-  "functional": [
-    "0.0.1",
-    "0.0.2",
-    "0.0.3"
-  ],
-  "url": [
-    "1.0.0"
-  ]
+  "k6-utils": {
+    "versions": [
+      "1.0.0"
+    ],
+    "docs-url": ""
+  },
+  "k6-summary": {
+    "versions": [
+      "0.0.1"
+    ],
+    "docs-url": ""
+  },
+  "jsonpath": {
+    "versions": [
+      "1.0.2"
+    ],
+    "docs-url": ""
+  },
+  "formdata": {
+    "versions": [
+      "0.0.1",
+      "0.0.2"
+    ],
+    "docs-url": ""
+  },
+  "form-urlencoded": {
+    "versions": [
+      "3.0.0"
+    ],
+    "docs-url": ""
+  },
+  "papaparse": {
+    "versions": [
+      "5.1.1"
+    ],
+    "docs-url": ""
+  },
+  "ajv": {
+    "versions": [
+      "6.12.5"
+    ],
+    "docs-url": "https://ajv.js.org/api.html"
+  },
+  "httpx": {
+    "versions": [
+      "0.0.1",
+      "0.0.2",
+      "0.0.3"
+    ],
+    "docs-url": ""
+  },
+  "expect": {
+    "versions": [
+      "0.0.4"
+    ],
+    "docs-url": ""
+  },
+  "url": {
+    "versions": [
+      "1.0.0"
+    ],
+    "docs-url": ""
+  }
 }
