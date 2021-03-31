@@ -15,7 +15,7 @@
     "versions": [
       "1.0.2"
     ],
-    "docs-url": ""
+    "docs-url": "https://github.com/k6io/JSONPath"
   },
   "formdata": {
     "versions": [
@@ -34,7 +34,7 @@
     "versions": [
       "5.1.1"
     ],
-    "docs-url": ""
+    "docs-url": "https://www.papaparse.com/docs"
   },
   "ajv": {
     "versions": [
@@ -48,13 +48,13 @@
       "0.0.2",
       "0.0.3"
     ],
-    "docs-url": ""
+    "docs-url": "https://k6.io/docs/javascript-api/jslib/httpx"
   },
   "expect": {
     "versions": [
       "0.0.4"
     ],
-    "docs-url": ""
+    "docs-url": "https://k6.io/docs/javascript-api/jslib/expect"
   },
   "url": {
     "versions": [
