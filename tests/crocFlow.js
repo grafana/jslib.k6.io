@@ -1,4 +1,4 @@
-import { test } from '../lib/functional/0.0.2/index.js';
+import { describe } from '../lib/functional/0.0.3/index.js';
 import { Httpx, Get } from '../lib/httpx/0.0.3/index.js';
 import { randomIntBetween, randomItem } from "../lib/k6-utils/1.0.0/index.js";
 import { crocodileAPIcontract, crocodileListAPIcontract } from './data/contracts.js'
@@ -10,7 +10,7 @@ let session = new Httpx({baseURL: 'https://test-api.k6.io'});
 
 function CrocFlow() {
 
-  test('Fetch public crocs', (t) => {
+  describe('Fetch public crocs', (t) => {
     let responses = session.batch([
       new Get('/public/crocodiles/1/'),
       new Get('/public/crocodiles/2/'),
@@ -30,7 +30,7 @@ function CrocFlow() {
 
   &&
 
-  test(`Create a test user ${USERNAME}`, (t) => {
+  describe(`Create a test user ${USERNAME}`, (t) => {
 
     let resp = session.post(`/user/register/`, {
       first_name: 'Crocodile',
@@ -45,7 +45,7 @@ function CrocFlow() {
 
   &&
 
-  test(`Authenticate the new user ${USERNAME}`, (t) => {
+  describe(`Authenticate the new user ${USERNAME}`, (t) => {
 
     let resp = session.post(`/auth/token/login/`, {
       username: USERNAME,
@@ -64,7 +64,7 @@ function CrocFlow() {
 
   let newCrocId = null;
 
-  test('Create a new crocodile', (t) => {
+  describe('Create a new crocodile', (t) => {
     let payload = {
       name: `Croc Name`,
       sex: randomItem(["M", "F"]),
@@ -81,7 +81,7 @@ function CrocFlow() {
 
   &&
 
-  test('Fetch private crocs', (t) => {
+  describe('Fetch private crocs', (t) => {
 
     let response = session.get('/my/crocodiles/');
 
@@ -93,7 +93,7 @@ function CrocFlow() {
 
   &&
 
-  test('Update the croc', (t) => {
+  describe('Update the croc', (t) => {
     let payload = {
       name: `New name`,
     };
@@ -110,7 +110,7 @@ function CrocFlow() {
 
   &&
 
-  test('Delete the croc', (t) => {
+  describe('Delete the croc', (t) => {
 
     let resp = session.delete(`/my/crocodiles/${newCrocId}/`);
 
