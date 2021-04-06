@@ -3,7 +3,7 @@
     "versions": [
       "1.0.0"
     ],
-    "docs-url": ""
+    "docs-url": "https://k6.io/docs/javascript-api/jslib/utils"
   },
   "k6-summary": {
     "versions": [
