@@ -5,7 +5,7 @@ import jsonpath from "../lib/jsonpath/1.0.2/index.js";
 import formurlencoded from "../lib/form-urlencoded/3.0.0/index.js";
 import papaparse from "../lib/papaparse/5.1.1/index.js";
 
-import { randomIntBetween, randomItem, uuidv4 } from "../lib/k6-utils/1.0.0/index.js";
+import { randomIntBetween, randomItem, uuidv4, findBetween } from "../lib/k6-utils/1.0.0/index.js";
 
 function testJsonPath() {
   const data = {
@@ -65,6 +65,13 @@ function testuuidv4(){
   });
 }
 
+function testFindBetween(){
+  let str = "<find>me</find>";
+
+  check(findBetween(str, "<find>", "</find>"), {
+    "findBetween works": (val) => val === "me",
+  });  
+}
 
 export {
   testJsonPath,
@@ -73,4 +80,5 @@ export {
   testRandomBetween,
   testRandomItem,
   testuuidv4,
+  testFindBetween,
 }
