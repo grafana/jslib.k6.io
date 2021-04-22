@@ -54,7 +54,8 @@
   },
   "expect": {
     "versions": [
-      "0.0.4"
+      "0.0.4",
+      "0.0.5"
     ],
     "docs-url": "https://k6.io/docs/javascript-api/jslib/expect"
   },
