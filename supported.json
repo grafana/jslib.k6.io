@@ -64,5 +64,11 @@
       "1.0.0"
     ],
     "docs-url": ""
+  },
+  "kahwah": {
+    "versions": [
+      "0.1.6"
+    ],
+    "docs-url": "https://www.npmjs.com/package/kahwah"
   }
 }
