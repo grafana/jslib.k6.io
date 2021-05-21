@@ -8,7 +8,7 @@
   "author": "Simon Legander <simon.legander@gmail.com>",
   "license": "AGPL-3.0",
   "scripts": {
-    "test": "k6 run tests/testSuite.js -u 1 -i 1",
+    "test": "k6 run tests/testSuite.js -u 1",
     "copy-libs": "node scripts/copy-libs.js",
     "generate-homepage": "node scripts/generate-homepage.js",
     "verify-homepage": "node scripts/generate-homepage.js && node scripts/server.js",
