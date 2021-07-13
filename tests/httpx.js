@@ -1,5 +1,5 @@
 import { check } from 'k6';
-import { Httpx, Get } from "../lib/httpx/0.0.3/index.js";
+import { Httpx, Get } from "../lib/httpx/0.0.5/index.js";
 
 function httpxBatchTest() {
   let session = new Httpx({baseURL: 'https://test-api.k6.io'});
