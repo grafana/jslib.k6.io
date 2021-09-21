@@ -11,7 +11,7 @@ import {
   testKahwah,
 } from './basic.js'
 import { papaparseTest } from './papaparseRedingFile.js'
-import { httpxBatchTest } from './httpx.js'
+import { httpxBatchTest, httpxTestAbsoluteURLs } from './httpx.js'
 import { newAjv } from './ajv-test.js'
 import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
@@ -22,7 +22,7 @@ let testCasesOK = new Rate('test_case_ok');
 const testCases = [
   URLWebAPI, testJsonPath, testFormurlencoded, testPapaparse, testRandomBetween,
   testRandomItem, testuuidv4, papaparseTest, httpxBatchTest, newAjv, CrocFlow,
-  testKahwah,
+  testKahwah, httpxTestAbsoluteURLs
 ];
 
 export const options = {

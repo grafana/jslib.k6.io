@@ -4,7 +4,7 @@ import jsonpath from "../lib/jsonpath/1.0.2/index.js";
 import formurlencoded from "../lib/form-urlencoded/3.0.0/index.js";
 import papaparse from "../lib/papaparse/5.1.1/index.js";
 import { describe } from "../lib/kahwah/0.1.6/index.js";
-import { Httpx } from "../lib/httpx/0.0.5/index.js";
+import { Httpx } from "../lib/httpx/0.0.6/index.js";
 
 import { randomIntBetween, randomItem, uuidv4 } from "../lib/k6-utils/1.0.0/index.js";
 
