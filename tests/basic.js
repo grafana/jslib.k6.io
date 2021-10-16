@@ -5,6 +5,7 @@ import formurlencoded from "../lib/form-urlencoded/3.0.0/index.js";
 import papaparse from "../lib/papaparse/5.1.1/index.js";
 import { describe } from "../lib/kahwah/0.1.6/index.js";
 import { Httpx } from "../lib/httpx/0.0.6/index.js";
+import { expect, describe as chaidescribe } from "../lib/k6chaijs/4.3.4.0/index.js";
 
 import { randomIntBetween, randomItem, uuidv4 } from "../lib/k6-utils/1.0.0/index.js";
 
@@ -73,6 +74,14 @@ function testKahwah(){
   });
 }
 
+function testk6chaijs(){
+
+  chaidescribe("k6 chai js test", ()=> {
+    expect('k6chaijs').to.equal("k6chaijs")
+  })
+
+}
+
 export {
   testJsonPath,
   testFormurlencoded,
@@ -81,4 +90,5 @@ export {
   testRandomItem,
   testuuidv4,
   testKahwah,
+  testk6chaijs,
 }

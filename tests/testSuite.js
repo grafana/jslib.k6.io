@@ -1,4 +1,3 @@
-import { check } from 'k6'
 import { Rate } from 'k6/metrics'
 
 import {
@@ -9,6 +8,7 @@ import {
   testRandomItem,
   testuuidv4,
   testKahwah,
+  testk6chaijs,
 } from './basic.js'
 import { papaparseTest } from './papaparseRedingFile.js'
 import { httpxBatchTest, httpxTestAbsoluteURLs } from './httpx.js'
@@ -22,7 +22,7 @@ let testCasesOK = new Rate('test_case_ok');
 const testCases = [
   URLWebAPI, testJsonPath, testFormurlencoded, testPapaparse, testRandomBetween,
   testRandomItem, testuuidv4, papaparseTest, httpxBatchTest, newAjv, CrocFlow,
-  testKahwah, httpxTestAbsoluteURLs
+  testKahwah, httpxTestAbsoluteURLs, testk6chaijs
 ];
 
 export const options = {

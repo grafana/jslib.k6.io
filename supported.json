@@ -61,6 +61,12 @@
     ],
     "docs-url": "https://k6.io/docs/javascript-api/jslib/expect"
   },
+  "k6chaijs": {
+    "versions": [
+      "4.3.4.0"
+    ],
+    "docs-url": "https://github.com/grafana/k6-jslib-k6chaijs"
+  },
   "url": {
     "versions": [
       "1.0.0"
