@@ -1,0 +1,96 @@
+{
+  "root_group": {
+    "name": "",
+    "path": "",
+    "id": "d41d8cd98f00b204e9800998ecf8427e",
+    "groups": [],
+    "checks": []
+  },
+  "options": {
+    "summaryTrendStats": [
+      "avg",
+      "min",
+      "med",
+      "max",
+      "p(90)",
+      "p(95)"
+    ],
+    "summaryTimeUnit": "",
+    "noColor": false
+  },
+  "state": {
+    "isStdOutTTY": false,
+    "isStdErrTTY": false,
+    "testRunDurationMs": 1.258136
+  },
+  "metrics": {
+    "prefix{sub:one}": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 1,
+        "rate": 794.8266324149376
+      }
+    },
+    "prefix_suffix": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 1,
+        "rate": 794.8266324149376
+      }
+    },
+    "prefix_suffix{sub:two}": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 1,
+        "rate": 794.8266324149376
+      }
+    },
+    "data_sent": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 0,
+        "rate": 0
+      }
+    },
+    "data_received": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 0,
+        "rate": 0
+      }
+    },
+    "iteration_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 0.110371,
+        "max": 0.110371,
+        "p(90)": 0.110371,
+        "p(95)": 0.110371,
+        "avg": 0.110371,
+        "min": 0.110371
+      }
+    },
+    "iterations": {
+      "contains": "default",
+      "values": {
+        "count": 1,
+        "rate": 794.8266324149376
+      },
+      "type": "counter"
+    },
+    "prefix": {
+      "contains": "default",
+      "values": {
+        "rate": 794.8266324149376,
+        "count": 1
+      },
+      "type": "counter"
+    }
+  }
+}

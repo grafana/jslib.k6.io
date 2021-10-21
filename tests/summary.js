@@ -1,6 +1,7 @@
 var check = require('k6').check
 
 var summary = require('../lib/k6-summary/0.0.1/index.js')
+var summary2 = require('../lib/k6-summary/0.0.2/index.js')
 
 function D(nanosecondDuration) {
   return nanosecondDuration / 1000000.0 // in msec
@@ -213,6 +214,7 @@ exports.testHumanizeValue = function () {
 }
 
 var rawData = JSON.parse(open('./data/summary/raw-data.json'))
+var rawSubMetricData = JSON.parse(open('./data/summary/submetrics-raw-data.json'))
 var expTextColorOutput = open('./data/summary/exp-text-color.txt')
 var textColorOldk6Output = open('./data/summary/text-color-old-from-k6.txt')
 
@@ -228,6 +230,15 @@ exports.testTextSummary = function () {
     },
     'nocolor text result matches old k6 nocolor': function () {
       return textColorOldk6Output.replace(/\u001b\[[\d;]*m/g, '') === resultNoColor
+    },
+  })
+}
+
+exports.testSubMetricTextSummary = function () {
+  var textSummary = summary2.textSummary(rawSubMetricData, { indent: ' ', enableColors: false })
+  check(null, {
+    'metrics grouped correctly': function () {
+      return /prefix[\s\S]+sub:one[\s\S]+prefix_suffix[\s\S]+sub:two/.test(textSummary)
     },
   })
 }

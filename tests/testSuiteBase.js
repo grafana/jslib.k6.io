@@ -5,6 +5,7 @@ var testCasesOK = new Rate('test_case_ok')
 var testCases = [
   require('./summary.js').testHumanizeValue,
   require('./summary.js').testTextSummary,
+  require('./summary.js').testSubMetricTextSummary,
   require('./formdata.js').testPost,
 ]
 
