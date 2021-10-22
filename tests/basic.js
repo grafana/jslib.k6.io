@@ -9,6 +9,7 @@ import { Httpx } from "../lib/httpx/0.0.6/index.js";
 import { chai, expect, describe as chaidescribe } from "../lib/k6chaijs/4.3.4.0/index.js";
 import { initContractPlugin } from '../lib/k6chaijs-contracts/4.3.4.0/index.js';
 import { randomIntBetween, randomItem, uuidv4 } from "../lib/k6-utils/1.0.0/index.js";
+import { Mustache } from "../lib/mustache/4.2.0/index.js"
 
 initContractPlugin(chai);
 
@@ -77,6 +78,12 @@ function testKahwah(){
   });
 }
 
+function testMustache() {
+  check('null', {
+    'mustache works': (k) => typeof Mustache == 'object',
+  })
+}
+
 function testk6chaijs(){
 
   chaidescribe("k6 chai js test", ()=> {
@@ -134,4 +141,5 @@ export {
   testKahwah,
   testk6chaijs,
   testk6chaijscontracts,
+  testMustache,
 }

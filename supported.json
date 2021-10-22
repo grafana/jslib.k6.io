@@ -84,5 +84,11 @@
       "0.1.6"
     ],
     "docs-url": "https://www.npmjs.com/package/kahwah"
+  },
+  "mustache": {
+    "versions": [
+      "4.2.0"
+    ],
+    "docs-url": "https://www.npmjs.com/package/mustache"
   }
 }
