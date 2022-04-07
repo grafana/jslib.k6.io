@@ -48,14 +48,15 @@ function testFormurlencoded() {
 }
 
 function testFindBetween(){
-  check(findBetween("**a**", "**", "**")), {
+  check(findBetween("**a**", "**", "**"), {
     "findBetween works": (s) => s === "a",
-  }
+  });
 }
 
 function testNormalDistributionStages(){
   check(normalDistributionStages(1, 1, 1), {
-    "normalDistributionStages works": (n) => r >= 0,
+    // This only ensures the function is runnable...not that it is
+    "normalDistributionStages works": (dist) => dist.length === 3,
   });
 }
 
@@ -76,9 +77,9 @@ function testRandomItem(){
 }
 
 function testRandomString(){
-  check(randomString(5, "a")), {
+  check(randomString(5, "a"), {
     "randomString works": (s) => s === "aaaaa",
-  }
+  });
 }
 
 function testuuidv4(){

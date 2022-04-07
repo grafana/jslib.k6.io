@@ -26,7 +26,7 @@ To make life a little easier during development make sure that the following are
 }
 ```
 
-6. Add test case in `/tests/basic.js` to make sure that the added lib is importable and runnable by k6.
+6. Add test case in `/tests/basic.js` and `/tests/testSuite.js` to make sure that the added lib is importable and runnable by k6.
 7. Update the homepage by running `yarn run generate-homepage`.
 8. Verify that new homepage `/lib/index.html` is legit (Quickly done by running `yarn run verify-homepage`).
 9. Create a PR, get approved etc..
