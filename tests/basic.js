@@ -8,7 +8,7 @@ import { describe } from "../lib/kahwah/0.1.6/index.js";
 import { Httpx } from "../lib/httpx/0.0.6/index.js";
 import { chai, expect, describe as chaidescribe } from "../lib/k6chaijs/4.3.4.0/index.js";
 import { initContractPlugin } from '../lib/k6chaijs-contracts/4.3.4.0/index.js';
-import { randomIntBetween, randomItem, uuidv4 } from "../lib/k6-utils/1.0.0/index.js";
+import { findBetween, normalDistributionStages, randomIntBetween, randomItem, randomString, uuidv4 } from "../lib/k6-utils/1.2.0/index.js";
 
 initContractPlugin(chai);
 
@@ -47,6 +47,18 @@ function testFormurlencoded() {
   });
 }
 
+function testFindBetween(){
+  check(findBetween("**a**", "**", "**")), {
+    "findBetween works": (s) => s === "a",
+  }
+}
+
+function testNormalDistributionStages(){
+  check(normalDistributionStages(1, 1, 1), {
+    "normalDistributionStages works": (n) => r >= 0,
+  });
+}
+
 function testRandomBetween(){
   let randomInt = randomIntBetween(1,1);
   console.log(randomInt);
@@ -61,6 +73,12 @@ function testRandomItem(){
   check(randomItem(items), {
     "randomItem works": (item) => items.includes(item),
   });
+}
+
+function testRandomString(){
+  check(randomString(5, "a")), {
+    "randomString works": (s) => s === "aaaaa",
+  }
 }
 
 function testuuidv4(){
@@ -128,8 +146,11 @@ export {
   testJsonPath,
   testFormurlencoded,
   testPapaparse,
+  testFindBetween,
+  testNormalDistributionStages,
   testRandomBetween,
   testRandomItem,
+  testRandomString,
   testuuidv4,
   testKahwah,
   testk6chaijs,
