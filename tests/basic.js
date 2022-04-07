@@ -55,7 +55,7 @@ function testFindBetween(){
 
 function testNormalDistributionStages(){
   check(normalDistributionStages(1, 1, 1), {
-    // This only ensures the function is runnable...not that it is
+    // This only ensures the function is runnable...not that it is working
     "normalDistributionStages works": (dist) => dist.length === 3,
   });
 }
