@@ -86,5 +86,11 @@
       "0.1.6"
     ],
     "docs-url": "https://www.npmjs.com/package/kahwah"
+  },
+  "aws": {
+    "versions": [
+      "0.1.0"
+    ],
+    "docs-url": "https://github.com/grafana/k6-jslib-aws"
   }
 }
