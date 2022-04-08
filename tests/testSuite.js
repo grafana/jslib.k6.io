@@ -4,8 +4,11 @@ import {
   testJsonPath,
   testFormurlencoded,
   testPapaparse,
+  testFindBetween,
+  testNormalDistributionStages,
   testRandomBetween,
   testRandomItem,
+  testRandomString,
   testuuidv4,
   testKahwah,
   testk6chaijs,
@@ -23,7 +26,8 @@ let testCasesOK = new Rate('test_case_ok');
 const testCases = [
   URLWebAPI, testJsonPath, testFormurlencoded, testPapaparse, testRandomBetween,
   testRandomItem, testuuidv4, papaparseTest, httpxBatchTest, newAjv, CrocFlow,
-  testKahwah, httpxTestAbsoluteURLs, testk6chaijs, testk6chaijscontracts
+  testKahwah, httpxTestAbsoluteURLs, testk6chaijs, testk6chaijscontracts,
+  testFindBetween, testNormalDistributionStages, testRandomString
 ];
 
 export const options = {
