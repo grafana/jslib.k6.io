@@ -13,6 +13,7 @@ import {
   testKahwah,
   testk6chaijs,
   testk6chaijscontracts,
+  testAWS,
 } from './basic.js'
 import { papaparseTest } from './papaparseRedingFile.js'
 import { httpxBatchTest, httpxTestAbsoluteURLs } from './httpx.js'
@@ -27,7 +28,7 @@ const testCases = [
   URLWebAPI, testJsonPath, testFormurlencoded, testPapaparse, testRandomBetween,
   testRandomItem, testuuidv4, papaparseTest, httpxBatchTest, newAjv, CrocFlow,
   testKahwah, httpxTestAbsoluteURLs, testk6chaijs, testk6chaijscontracts,
-  testFindBetween, testNormalDistributionStages, testRandomString
+  testFindBetween, testNormalDistributionStages, testRandomString, testAWS
 ];
 
 export const options = {
