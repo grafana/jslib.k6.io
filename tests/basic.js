@@ -9,7 +9,6 @@ import { Httpx } from "../lib/httpx/0.0.6/index.js";
 import { chai, expect, describe as chaidescribe } from "../lib/k6chaijs/4.3.4.0/index.js";
 import { initContractPlugin } from "../lib/k6chaijs-contracts/4.3.4.0/index.js";
 import { findBetween, normalDistributionStages, randomIntBetween, randomItem, randomString, uuidv4 } from "../lib/k6-utils/1.2.0/index.js";
-import { AWSConfig, S3Client } from "../lib/aws/0.1.0/index.js";
 
 initContractPlugin(chai)
 
@@ -141,15 +140,6 @@ function testk6chaijscontracts(){
     expect(response).to.have.validJsonBody()
     expect(response.json(), "Croc List schema").to.matchSchema(crocodileListAPIcontract)
   })
-}
-
-function testAws() {
-  // We can't really test the underlying AWS implementation
-  // here without proper access to AWS itself. So let's just
-  // verify that everything is properly imported, and that
-  // the expected public symbols exist.
-  const awsConfig = new AWSConfig("us-east-1", "aws_access_key_id", "aws_secret_access_key");
-  const s3 = new S3Client(awsConfig);
 }
 
 export {
