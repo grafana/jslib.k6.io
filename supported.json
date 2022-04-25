@@ -90,7 +90,8 @@
   "aws": {
     "versions": [
       "0.1.0",
-      "0.3.0"
+      "0.3.0",
+      "0.4.0"
     ],
     "docs-url": "https://github.com/grafana/k6-jslib-aws"
   }

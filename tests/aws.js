@@ -2,12 +2,12 @@ import {
   AWSConfig as globalAWSConfig,
   S3Client as globalS3Client,
   SecretsManagerClient as globalSecretsManagerClient,
-} from '../lib/aws/0.3.0/aws.js'
-import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.3.0/s3.js'
+} from '../lib/aws/0.4.0/aws.js'
+import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.4.0/s3.js'
 import {
   AWSConfig as smAWSConfig,
   SecretsManagerClient as smSecretsManagerClient,
-} from '../lib/aws/0.3.0/secrets-manager.js'
+} from '../lib/aws/0.4.0/secrets-manager.js'
 
 function testAWS() {
   // We can't really test the underlying AWS implementation
