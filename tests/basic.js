@@ -8,7 +8,17 @@ import { describe } from "../lib/kahwah/0.1.6/index.js";
 import { Httpx } from "../lib/httpx/0.0.6/index.js";
 import { chai, expect, describe as chaidescribe } from "../lib/k6chaijs/4.3.4.0/index.js";
 import { initContractPlugin } from "../lib/k6chaijs-contracts/4.3.4.0/index.js";
-import { findBetween, normalDistributionStages, randomIntBetween, randomItem, randomString, uuidv4 } from "../lib/k6-utils/1.2.0/index.js";
+import {
+  findBetween,
+  normalDistributionStages,
+  randomIntBetween,
+  randomItem,
+  randomString,
+  uuidv4,
+  getCurrentStageIndex,
+  tagWithCurrentStageIndex,
+  tagWithCurrentStageProfile,
+} from "../lib/k6-utils/1.3.0/index.js";
 
 initContractPlugin(chai)
 
@@ -32,7 +42,7 @@ function testPapaparse() {
   let parsed = papaparse.parse(csvString, config);
 
   check(parsed, {
-    "papaparse works": (data) =>  parsed.data[0].crocodileName === "Bert"
+    "papaparse works": (data) => parsed.data[0].crocodileName === "Bert"
   })
 }
 
@@ -47,64 +57,78 @@ function testFormurlencoded() {
   });
 }
 
-function testFindBetween(){
+function testFindBetween() {
   check(findBetween("**a**", "**", "**"), {
     "findBetween works": (s) => s === "a",
   });
 }
 
-function testNormalDistributionStages(){
+function testNormalDistributionStages() {
   check(normalDistributionStages(1, 1, 1), {
     // This only ensures the function is runnable...not that it is working
     "normalDistributionStages works": (dist) => dist.length === 3,
   });
 }
 
-function testRandomBetween(){
-  let randomInt = randomIntBetween(1,1);
-  console.log(randomInt);
+function testRandomBetween() {
+  let randomInt = randomIntBetween(1, 1);
+
   check(randomInt, {
     "randomBetween works": (r) => r === 1,
   });
 }
 
-function testRandomItem(){
-  let items = [1,2,3,4];
+function testRandomItem() {
+  let items = [1, 2, 3, 4];
 
   check(randomItem(items), {
     "randomItem works": (item) => items.includes(item),
   });
 }
 
-function testRandomString(){
+function testRandomString() {
   check(randomString(5, "a"), {
     "randomString works": (s) => s === "aaaaa",
   });
 }
 
-function testuuidv4(){
-
+function testuuidv4() {
   check(uuidv4(), {
     "uuidv4 works": (val) => val.length === 36,
   });
 }
 
-function testKahwah(){
-
+function testKahwah() {
   check(null, {
     "kahwah works": (k) => typeof describe == "function",
   });
 }
 
-function testk6chaijs(){
-
-  chaidescribe("k6 chai js test", ()=> {
-    expect('k6chaijs').to.equal("k6chaijs")
-  })
-
+function testGetCurrentStageIndex() {
+  check(getCurrentStageIndex, {
+    "getCurrentStageIndex works": (k) => typeof describe == "function",
+  });
 }
 
-function testk6chaijscontracts(){
+function testTagWithCurrentStageIndex() {
+  check(tagWithCurrentStageIndex, {
+    "tagWithCurrentStageIndex works": (k) => typeof describe == "function",
+  });
+}
+
+function testTagWithCurrentStageProfile() {
+  check(tagWithCurrentStageProfile, {
+    "tagWithCurrentStageProfile works": (k) => typeof describe == "function",
+  });
+}
+
+function testk6chaijs() {
+  chaidescribe("k6 chai js test", () => {
+    expect('k6chaijs').to.equal("k6chaijs")
+  })
+}
+
+function testk6chaijscontracts() {
 
   const crocodileListAPIcontract = {
     items: {
@@ -127,10 +151,10 @@ function testk6chaijscontracts(){
         }
       },
       "required": [
-	      "id",
-	      "name",
-	      "age",
-	      "date_of_birth"
+        "id",
+        "name",
+        "age",
+        "date_of_birth"
       ]
     }
   };
@@ -153,6 +177,9 @@ export {
   testRandomString,
   testuuidv4,
   testKahwah,
+  testGetCurrentStageIndex,
+  testTagWithCurrentStageIndex,
+  testTagWithCurrentStageProfile,
   testk6chaijs,
   testk6chaijscontracts,
 }
