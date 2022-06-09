@@ -17,12 +17,32 @@ To make life a little easier during development make sure that the following are
 
 ```javascript
 {
-  "{lib_name}": ["{desired_version}"]
+  "{lib_name}": {
+    // Available package versions
+    "versions": [
+      "{desired_version}"
+    ],
+
+    // (optional) Documentation's or repository's URL
+    "docs-url": "{documentation_or_repository_url}",
+
+    // (optional) As a default, the homepage will point to
+    // a package's bundle's index.js. If your package main
+    // bundle's name is different, set it here (see the AWS
+    // package for instance).
+    "bundle-filename": "{index.js}"
 }
 
 // Example result
 {
-  "awesome-lib": ["2.0.3"]
+  "awesome-lib": {
+    "versions": [
+      "2.0.3",
+      "2.1.2"
+    ],
+    "docs-url": "https://github.com/example/jslib",
+    "bundle-filename": "main.js"
+  }
 }
 ```
 

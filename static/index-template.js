@@ -18,8 +18,9 @@ const versionsTable = () => {
   const supported = require('../supported.json');
   const trs = Object.entries(supported)
     .map(([name, lib]) => {
+      const bundleFilename = lib['bundle-filename'] ?? 'index.js';
       const versionLinks = lib.versions
-        .map(version => createLink(name, version, 'index.js'))
+        .map(version => createLink(name, version, bundleFilename))
         .join(', ');
         docsLink = lib['docs-url'] ? `<a href="${lib['docs-url']}">${lib['docs-url']}</a>`: "";
       return `<tr>
