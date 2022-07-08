@@ -1,8 +1,7 @@
 import { describe } from '../lib/functional/0.0.3/index.js';
 import { Httpx, Get } from '../lib/httpx/0.0.3/index.js';
-import { randomIntBetween, randomItem } from "../lib/k6-utils/1.0.0/index.js";
-import { crocodileAPIcontract, crocodileListAPIcontract } from './data/contracts.js'
-import { uuidv4 } from '../lib/k6-utils/1.0.0/index.js';
+import { randomIntBetween, randomItem, uuidv4 } from "../lib/k6-utils/1.4.0/index.js";
+import { crocodileAPIcontract, crocodileListAPIcontract } from './data/contracts.js';
 
 const USERNAME = `user${uuidv4()}@example.com`;  // Set your own email;
 const PASSWORD = 'superCroc2019';

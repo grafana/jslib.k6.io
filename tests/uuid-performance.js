@@ -1,5 +1,5 @@
 import { sleep } from "k6";
-import { uuidv4 }from "../lib/k6-utils/1.0.0/index.js";
+import { uuidv4 }from "../lib/k6-utils/1.4.0/index.js";
 
 export let options = {
   duration: '1m',
