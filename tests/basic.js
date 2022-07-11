@@ -18,7 +18,7 @@ import {
   getCurrentStageIndex,
   tagWithCurrentStageIndex,
   tagWithCurrentStageProfile,
-} from "../lib/k6-utils/1.3.0/index.js";
+} from "../lib/k6-utils/1.4.0/index.js";
 
 initContractPlugin(chai)
 

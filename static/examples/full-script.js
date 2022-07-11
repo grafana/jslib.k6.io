@@ -1,6 +1,6 @@
 import { check, sleep } from "k6";
 import jsonpath from "https://jslib.k6.io/jsonpath/1.0.2/index.js"
-import { randomIntBetween, randomItem, uuidv4 } from "https://jslib.k6.io/k6-utils/1.0.0/index.js";
+import { randomIntBetween, randomItem, uuidv4 } from "https://jslib.k6.io/k6-utils/1.4.0/index.js";
 
 export const options = {
   "duration": "10s",
