@@ -168,3 +168,7 @@ Once a new version dir has been created and added to `supported.json`, it is tim
 6. Create a PR and get it approved. 
 7. Merge main (This will push the updates to S3).
 8. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js
+
+## Contributing
+
+Because the jslib repository essentially hosts versioned build files, we expect most of the review of the actual code producing said build files to be done upstream in each jslib's project dedicated repositories. Therefore, to streamline the process of publishing new jslib versions, and while we still encourage contributors to seek relevant reviews, pull requests do not require approvals to be merged. We expect contributors to act responsibly and not merge Pull Requests that might be harmful to the k6 ecosystem, nor merge Pull Requests from other contributors without explicit approval.
