@@ -50,7 +50,8 @@ To make life a little easier during development, make sure to install the follow
 7. Update the homepage by running `yarn run generate-homepage`.
 8. Verify that the new homepage `/lib/index.html` is legit (Quickly done by running `yarn run verify-homepage`).
 9. Create a PR.
-10. Get it merged to main (This will push the updates to S3).
+10. Get a review from maintainers of the repository.
+11. Merge it to main (This will push the updates to S3).
 11. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js and verify that everything works as expected.
 
 ## Add a JS package that requires bundling
@@ -95,7 +96,7 @@ yarn run bundle url@1.0.0
 5. Add test cases in `/tests/basic.js` to ensure that the ported lib is importable and runnable by k6.
 6. Update the homepage by running `yarn run generate-homepage`.
 7. Verify that the new homepage `/lib/index.html` is legit (Quickly done by running `yarn run verify-homepage`).
-8. Create a PR.
+8. Create a PR, and go ahead and merge it. Version updates do not require to be reviewed.
 9. Get it merged to the main branch (This will push the updates to S3).
 10. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js to verify that everything works as expected.
 
@@ -168,7 +169,3 @@ Once a new version dir has been created and added to `supported.json`, it is tim
 6. Create a PR and get it approved. 
 7. Merge main (This will push the updates to S3).
 8. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js
-
-## Contributing
-
-Because the jslib repository essentially hosts versioned build files, we expect most of the review of the actual code producing said build files to be done upstream in each jslib's project dedicated repositories. Therefore, to streamline the process of publishing new jslib versions, and while we still encourage contributors to seek relevant reviews, pull requests do not require approvals to be merged. We expect contributors to act responsibly and not merge Pull Requests that might be harmful to the k6 ecosystem, nor merge Pull Requests from other contributors without explicit approval.
