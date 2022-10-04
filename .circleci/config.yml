@@ -78,4 +78,4 @@ workflows:
             - test-base
           filters:
             branches:
-              only: master
+              only: main 
