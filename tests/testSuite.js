@@ -24,16 +24,32 @@ import {
   testk6chaijscontracts,
 } from './basic.js'
 
-let testCasesOK = new Rate('test_case_ok');
+let testCasesOK = new Rate('test_case_ok')
 
 const testCases = [
-  URLWebAPI, testJsonPath, testFormurlencoded, testPapaparse, testRandomBetween,
-  testRandomItem, testuuidv4,
-  testGetCurrentStageIndex, testTagWithCurrentStageIndex, testTagWithCurrentStageProfile,
-  papaparseTest, httpxBatchTest, newAjv, CrocFlow,
-  testKahwah, httpxTestAbsoluteURLs, testk6chaijs, testk6chaijscontracts,
-  testFindBetween, testNormalDistributionStages, testRandomString, testAWS
-];
+  URLWebAPI,
+  testJsonPath,
+  testFormurlencoded,
+  testPapaparse,
+  testRandomBetween,
+  testRandomItem,
+  testuuidv4,
+  testGetCurrentStageIndex,
+  testTagWithCurrentStageIndex,
+  testTagWithCurrentStageProfile,
+  papaparseTest,
+  httpxBatchTest,
+  newAjv,
+  CrocFlow,
+  testKahwah,
+  httpxTestAbsoluteURLs,
+  testk6chaijs,
+  testk6chaijscontracts,
+  testFindBetween,
+  testNormalDistributionStages,
+  testRandomString,
+  testAWS,
+]
 
 export const options = {
   vus: 1,
@@ -46,11 +62,11 @@ export const options = {
 
 export default function () {
   try {
-    testCases[__ITER]();
-    testCasesOK.add(true);
+    testCases[__ITER]()
+    testCasesOK.add(true)
   } catch (e) {
-    testCasesOK.add(false);
+    testCasesOK.add(false)
     console.log(`test case at index ${__ITER} has failed`)
-    throw e;
+    throw e
   }
 }
