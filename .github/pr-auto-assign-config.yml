@@ -1,0 +1,51 @@
+# Set to true to add reviewers to pull requests
+addReviewers: true
+
+# A number of reviewers added to the pull request
+# Set 0 to add all the reviewers (default: 0)
+numberOfReviewers: 2
+
+# A list of keywords to be skipped the process that add reviewers if pull requests include it
+skipKeywords:
+  - wip
+  - update
+  - updating
+  - bump
+
+# The action will only run if the PR meets the specified label criterias
+filterLabels:
+  # Run
+  include:
+    - bug
+    - enhancement
+    - dependencies
+  # Not Run
+  exclude:
+    - version bump
+
+# Set to true to add reviewers from different groups to pull requests
+useReviewGroups: true
+
+# A list of reviewers, split into different groups, to be added to pull requests (GitHub user name)
+reviewGroups:
+  k6devs:
+    - na--
+    - mstoykov
+    - codebien
+    - oleiade
+    - olegbespalov
+  k6js:
+    - legander
+    - w1kman
+
+# The action will only run for non-draft PRs. If you want to run for all PRs, you need to enable it to run on drafts.
+runOnDraft: false
+
+# Set addAssignees to 'author' to set the PR creator as the assignee.
+addAssignees: author
+
+# Set to true to add assignees from different groups to pull requests
+useAssigneeGroups: false
+
+
+
