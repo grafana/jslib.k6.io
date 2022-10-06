@@ -1,4 +1,4 @@
-# formadata jslib
+# formdata jslib
 
 The formdata jslib development happens in the [k6-jslib-formdata](https://github.com/grafana/k6-jslib-formdata) repository.
 
