@@ -14,11 +14,6 @@ skipKeywords:
 
 # The action will only run if the PR meets the specified label criterias
 filterLabels:
-  # Run
-  include:
-    - bug
-    - enhancement
-    - dependencies
   # Not Run
   exclude:
     - version bump
