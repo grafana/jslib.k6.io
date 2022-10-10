@@ -1,35 +1,35 @@
 #!/usr/bin/env node
-const fs = require('fs');
-const createFont = require('../scripts/create-base64-font');
+const fs = require('fs')
+const createFont = require('../scripts/create-base64-font')
 
-const bootstrap = fs.readFileSync('./static/bootstrap.css', 'utf-8');
-const styles = fs.readFileSync('./static/styles.css', 'utf-8');
-const prisms = fs.readFileSync('./static/prisms.js', 'utf-8');
-const header = fs.readFileSync('./static/header.html', 'utf-8');
-const jumbo = fs.readFileSync('./static/jumbo.html', 'utf-8');
+const bootstrap = fs.readFileSync('./static/bootstrap.css', 'utf-8')
+const styles = fs.readFileSync('./static/styles.css', 'utf-8')
+const prisms = fs.readFileSync('./static/prisms.js', 'utf-8')
+const header = fs.readFileSync('./static/header.html', 'utf-8')
+const jumbo = fs.readFileSync('./static/jumbo.html', 'utf-8')
 
-const DOMAIN = 'https://jslib.k6.io';
+const DOMAIN = 'https://jslib.k6.io'
 
 const createLink = (name, version, main) => {
-  return `<a target="_blank" href="${DOMAIN}/${name}/${version}/${main}">${version}</a>`;
-};
+  return `<a target="_blank" href="${DOMAIN}/${name}/${version}/${main}">${version}</a>`
+}
 
 const versionsTable = () => {
-  const supported = require('../supported.json');
+  const supported = require('../supported.json')
   const trs = Object.entries(supported)
     .map(([name, lib]) => {
-      const bundleFilename = lib['bundle-filename'] ?? 'index.js';
+      const bundleFilename = lib['bundle-filename'] ?? 'index.js'
       const versionLinks = lib.versions
-        .map(version => createLink(name, version, bundleFilename))
-        .join(', ');
-        docsLink = lib['docs-url'] ? `<a href="${lib['docs-url']}">${lib['docs-url']}</a>`: "";
+        .map((version) => createLink(name, version, bundleFilename))
+        .join(', ')
+      docsLink = lib['docs-url'] ? `<a href="${lib['docs-url']}">${lib['docs-url']}</a>` : ''
       return `<tr>
       <td>${name}</td>
       <td>${versionLinks}</td>
       <td>${docsLink}</td>
-    </tr>`;
+    </tr>`
     })
-    .join('');
+    .join('')
 
   return `
     <table class="table">
@@ -42,13 +42,13 @@ const versionsTable = () => {
       </thead>
       ${trs}
     </table>
-  `;
-};
+  `
+}
 
-const codeExample = name => {
-  const snippet = fs.readFileSync(`./static/examples/${name}`, 'utf-8');
-  return `<pre><code class="code language-js">${snippet}</code></pre>`;
-};
+const codeExample = (name) => {
+  const snippet = fs.readFileSync(`./static/examples/${name}`, 'utf-8')
+  return `<pre><code class="code language-js">${snippet}</code></pre>`
+}
 
 function renderToString() {
   return `
@@ -129,7 +129,7 @@ function renderToString() {
       </script>
     </body>
     </html>
-  `;
+  `
 }
 
-module.exports = { renderToString };
+module.exports = { renderToString }

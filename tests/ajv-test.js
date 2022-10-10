@@ -1,9 +1,7 @@
-import Ajv from "../lib/ajv/6.12.5/index.js";
+import Ajv from '../lib/ajv/6.12.5/index.js'
 
 function newAjv() {
-  let ajv = new Ajv();
+  let ajv = new Ajv()
 }
 
-export {
-  newAjv,
-}
+export { newAjv }
