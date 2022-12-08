@@ -4,10 +4,7 @@
     "docs-url": "https://k6.io/docs/javascript-api/jslib/utils"
   },
   "k6-summary": {
-    "versions": [
-      "0.0.1",
-      "0.0.2"
-    ],
+    "versions": ["0.0.1", "0.0.2"],
     "docs-url": ""
   },
   "jsonpath": {
@@ -55,17 +52,7 @@
     "docs-url": "https://www.npmjs.com/package/kahwah"
   },
   "aws": {
-<<<<<<< HEAD
-    "versions": [
-      "0.1.0",
-      "0.3.0",
-      "0.4.0",
-      "0.5.0",
-      "0.6.0"
-    ],
-=======
-    "versions": ["0.1.0", "0.3.0", "0.4.0", "0.5.0"],
->>>>>>> Apply imported style rules to relevant files
+    "versions": ["0.1.0", "0.3.0", "0.4.0", "0.5.0", "0.6.0", "0.7.0"],
     "bundle-filename": "aws.js",
     "docs-url": "https://github.com/grafana/k6-jslib-aws"
   }

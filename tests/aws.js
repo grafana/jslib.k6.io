@@ -3,13 +3,14 @@ import {
   S3Client as globalS3Client,
   SecretsManagerClient as globalSecretsManagerClient,
   KMSClient as globalKMSClient,
-} from '../lib/aws/0.5.0/aws.js'
-import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.5.0/s3.js'
+} from '../lib/aws/0.7.0/aws.js'
+import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.7.0/s3.js'
 import {
   AWSConfig as smAWSConfig,
   SecretsManagerClient as smSecretsManagerClient,
-} from '../lib/aws/0.5.0/secrets-manager.js'
-import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.5.0/kms.js'
+} from '../lib/aws/0.7.0/secrets-manager.js'
+import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.7.0/kms.js'
+import { SignatureV4 } from '../lib/aws/0.7.0/signature.js'
 
 function testAWS() {
   // We can't really test the underlying AWS implementation
@@ -51,6 +52,15 @@ function testAWS() {
     secretAccessKey: 'aws_secret_access_key',
   })
   kms = new kmsKMSClient(awsConfig)
+
+  let signer = new SignatureV4({
+    service: 's3',
+    region: 'us-east-1',
+    credentials: {
+      accessKeyId: 'aws_access_key_id',
+      secretAccessKey: 'aws_secret_access_key',
+    },
+  })
 }
 
 export { testAWS }
