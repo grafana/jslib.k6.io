@@ -8,6 +8,7 @@ import { describe } from '../lib/kahwah/0.1.6/index.js'
 import { Httpx } from '../lib/httpx/0.0.6/index.js'
 import { initContractPlugin } from '../lib/k6chaijs-contracts/4.3.4.0/index.js'
 import chai, { expect, describe as chaidescribe } from '../lib/k6chaijs/4.3.4.2/index.js'
+import testk6chaijs from './k6chai.js'
 import {
   findBetween,
   normalDistributionStages,
@@ -119,12 +120,6 @@ function testTagWithCurrentStageIndex() {
 function testTagWithCurrentStageProfile() {
   check(tagWithCurrentStageProfile, {
     'tagWithCurrentStageProfile works': (k) => typeof describe == 'function',
-  })
-}
-
-function testk6chaijs() {
-  chaidescribe('k6 chai js test', () => {
-    expect('k6chaijs').to.equal('k6chaijs')
   })
 }
 
