@@ -55,5 +55,9 @@
     "versions": ["0.1.0", "0.3.0", "0.4.0", "0.5.0", "0.6.0", "0.7.0"],
     "bundle-filename": "aws.js",
     "docs-url": "https://github.com/grafana/k6-jslib-aws"
+  },
+  "k6-rails": {
+    "versions": ["0.1.0"],
+    "docs-url": ""
   }
 }

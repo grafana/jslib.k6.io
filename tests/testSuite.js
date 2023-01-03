@@ -6,6 +6,7 @@ import { newAjv } from './ajv-test.js'
 import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
+import { testTurboStreamName, testCableUrl, testCsrfToken, testCsrfParam, testFetchMeta } from './k6-rails.js'
 import {
   testJsonPath,
   testFormurlencoded,
@@ -49,6 +50,11 @@ const testCases = [
   testNormalDistributionStages,
   testRandomString,
   testAWS,
+  testTurboStreamName,
+  testCableUrl,
+  testCsrfToken,
+  testCsrfParam,
+  testFetchMeta,
 ]
 
 export const options = {
