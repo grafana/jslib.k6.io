@@ -1,0 +1,58 @@
+name: test
+
+on: [push]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: download k6 binary
+        run:  curl -fsSL https://github.com/loadimpact/k6/releases/download/v0.42.0/k6-v0.42.0-linux-amd64.tar.gz | tar -xvz
+
+      - name: move downloaded k6 binary to current directory
+        run: mv k6-*/k6 .
+
+      - name: Upload k6 binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6
+          path: k6
+
+  test-base:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Download k6 binary
+        uses: actions/download-artifact@v3
+        with:
+          name: k6
+
+      - name: Ensure proper permissions on k6 executable
+        run: chmod +x k6
+
+      - name: Run tests with compatibility-mode=base
+        run: ./k6 run --compatibility-mode=base tests/testSuiteBase.js
+
+  test-extended:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download k6 binary
+        uses: actions/download-artifact@v3
+        with:
+          name: k6
+
+      - name: Ensure proper permissions on k6 executable
+        run: chmod +x k6
+
+      - name: Run tests
+        run: ./k6 run tests/testSuite.js
