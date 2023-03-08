@@ -20,6 +20,7 @@ import {
   tagWithCurrentStageIndex,
   tagWithCurrentStageProfile,
 } from '../lib/k6-utils/1.4.0/index.js'
+import steadybit from '../lib/steadybit/1.0.0/index.js'
 
 initContractPlugin(chai)
 
@@ -155,6 +156,24 @@ function testk6chaijscontracts() {
   })
 }
 
+function testSteadybit() {
+	// We can't really test the underlying steadybit implementation without access to a server instance.
+	// So let's just verify that everything is properly imported, and that the expected public symbols exist.
+	check(steadybit, {
+		'steadybit works': (s) => {
+			console.log(typeof s.start)
+			return typeof s == 'object' &&
+				typeof s.start == 'function' &&
+				typeof s.verifyCompleted == 'function' &&
+				typeof s.verifyRunning == 'function' &&
+				typeof s.waitForState == 'function' &&
+				typeof s.waitForEnd == 'function' &&
+				typeof s.cancel == 'function' &&
+				typeof s.getState == 'function'
+		},
+	})
+}
+
 export {
   testJsonPath,
   testFormurlencoded,
@@ -171,4 +190,5 @@ export {
   testTagWithCurrentStageProfile,
   testk6chaijs,
   testk6chaijscontracts,
+  testSteadybit
 }

@@ -22,6 +22,7 @@ import {
   testTagWithCurrentStageProfile,
   testk6chaijs,
   testk6chaijscontracts,
+  testSteadybit
 } from './basic.js'
 
 let testCasesOK = new Rate('test_case_ok')
@@ -49,6 +50,7 @@ const testCases = [
   testNormalDistributionStages,
   testRandomString,
   testAWS,
+  testSteadybit
 ]
 
 export const options = {
