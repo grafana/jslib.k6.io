@@ -31,6 +31,7 @@ To make life a little easier during development, make sure to install the follow
     // bundle name is different; set it here (see the AWS
     // package for instance).
     "bundle-filename": "{index.js}"
+  }
 }
 
 // Example result
@@ -166,6 +167,6 @@ Once a new version dir has been created and added to `supported.json`, it is tim
 3. Add a test case in `/tests/basic.js` to ensure that the added version is importable and runnable by k6.
 4. Update the homepage by running `yarn run generate-homepage`.
 5. Verify that the new homepage `/lib/index.html` is legit (Quickly done by running `yarn run verify-homepage`).
-6. Create a PR and get it approved. 
+6. Create a PR and get it approved.
 7. Merge main (This will push the updates to S3).
 8. Browse to https://jslib.k6.io/{lib_name}/{desired_version}/index.js
