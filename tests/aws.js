@@ -3,14 +3,14 @@ import {
   S3Client as globalS3Client,
   SecretsManagerClient as globalSecretsManagerClient,
   KMSClient as globalKMSClient,
-} from '../lib/aws/0.7.1/aws.js'
-import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.7.1/s3.js'
+} from '../lib/aws/0.7.2/aws.js'
+import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.7.2/s3.js'
 import {
   AWSConfig as smAWSConfig,
   SecretsManagerClient as smSecretsManagerClient,
-} from '../lib/aws/0.7.1/secrets-manager.js'
-import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.7.1/kms.js'
-import { SignatureV4 } from '../lib/aws/0.7.1/signature.js'
+} from '../lib/aws/0.7.2/secrets-manager.js'
+import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.7.2/kms.js'
+import { SignatureV4 } from '../lib/aws/0.7.2/signature.js'
 
 function testAWS() {
   // We can't really test the underlying AWS implementation
