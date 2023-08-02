@@ -62,7 +62,8 @@
       "0.7.1",
       "0.7.2",
       "0.8.0",
-      "0.8.1"
+      "0.8.1",
+      "0.9.0"
     ],
     "bundle-filename": "aws.js",
     "docs-url": "https://k6.io/docs/javascript-api/jslib/aws/"
