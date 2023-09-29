@@ -3,18 +3,24 @@ import {
   S3Client as globalS3Client,
   SecretsManagerClient as globalSecretsManagerClient,
   KMSClient as globalKMSClient,
-} from '../lib/aws/0.8.0/aws.js'
-import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.8.0/s3.js'
+  KinesisClient as globalKinesisClient,
+  EventBridgeClient as globalEventBridgeClient,
+} from '../lib/aws/0.10.0/aws.js'
+import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.10.0/s3.js'
 import {
   AWSConfig as smAWSConfig,
   SecretsManagerClient as smSecretsManagerClient,
-} from '../lib/aws/0.8.0/secrets-manager.js'
-import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.8.0/kms.js'
-import { SignatureV4 } from '../lib/aws/0.8.0/signature.js'
+} from '../lib/aws/0.10.0/secrets-manager.js'
+import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.10.0/kms.js'
+import { SignatureV4 } from '../lib/aws/0.10.0/signature.js'
 import {
   AWSConfig as kinesisAWSConfig,
   KinesisClient as kinesisKinesisClient,
-} from '../lib/aws/0.8.0/kinesis.js'
+} from '../lib/aws/0.10.0/kinesis.js'
+import {
+  AWSConfig as eventBridgeAWSConfig,
+  EventBridgeClient as eventBridgeEventBridgeClient,
+} from '../lib/aws/0.10.0/event-bridge.js'
 
 function testAWS() {
   // We can't really test the underlying AWS implementation
@@ -29,7 +35,8 @@ function testAWS() {
   let s3 = new globalS3Client(awsConfig)
   let secretsManager = new globalSecretsManagerClient(awsConfig)
   let kms = new globalKMSClient(awsConfig)
-  let kinesis = new globalKMSClient(awsConfig)
+  let kinesis = new globalKinesisClient(awsConfig)
+  let eventBridge = new globalEventBridgeClient(awsConfig)
 
   // Here we test that the s3.js exposed API corresponds
   // to our expectations.
@@ -73,6 +80,13 @@ function testAWS() {
       secretAccessKey: 'aws_secret_access_key',
     },
   })
+
+  awsConfig = new eventBridgeAWSConfig({
+    region: 'us-east-1',
+    accessKeyId: 'aws_access_key_id',
+    secretAccessKey: 'aws_secret_access_key',
+  })
+  eventBridge = new eventBridgeEventBridgeClient(awsConfig)
 }
 
 export { testAWS }
