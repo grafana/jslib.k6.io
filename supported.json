@@ -4,7 +4,7 @@
     "docs-url": "https://k6.io/docs/javascript-api/jslib/utils"
   },
   "k6-summary": {
-    "versions": ["0.0.1", "0.0.2", "0.0.3"],
+    "versions": ["0.0.1", "0.0.2", "0.0.3", "0.0.4"],
     "docs-url": "https://github.com/grafana/k6-jslib-summary"
   },
   "jsonpath": {
