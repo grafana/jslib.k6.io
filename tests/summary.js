@@ -1,6 +1,6 @@
 var check = require('k6').check
 
-var summary = require('../lib/k6-summary/0.0.3/index.js')
+var summary = require('../lib/k6-summary/0.1.0/index.js')
 
 function D(nanosecondDuration) {
   return nanosecondDuration / 1000000.0 // in msec
