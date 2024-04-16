@@ -75,5 +75,11 @@
       "1.0.0"
     ],
     "docs-url": "https://grafana.com/docs/k6/latest/javascript-api/jslib/http-instrumentation-pyroscope/"
+  },
+  "http-instrumentation-tempo": {
+    "versions": [
+      "1.0.0"
+    ],
+    "docs-url": "https://grafana.com/docs/k6/latest/javascript-api/jslib/http-instrumentation-tempo/"
   }
 }
