@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: download k6 binary
-        run:  curl -fsSL https://github.com/loadimpact/k6/releases/download/v0.42.0/k6-v0.42.0-linux-amd64.tar.gz | tar -xvz
+        run:  curl -fsSL https://github.com/grafana/k6/releases/download/v0.50.0/k6-v0.50.0-linux-amd64.tar.gz | tar -xvz
 
       - name: move downloaded k6 binary to current directory
         run: mv k6-*/k6 .
