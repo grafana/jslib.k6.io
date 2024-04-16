@@ -69,5 +69,11 @@
     ],
     "bundle-filename": "aws.js",
     "docs-url": "https://k6.io/docs/javascript-api/jslib/aws/"
+  },
+  "http-instrumentation-pyroscope": {
+    "versions": [
+      "1.0.0"
+    ],
+    "docs-url": "https://k6.io/docs/javascript-api/jslib/http-instrumentation-pyroscope/"
   }
 }
