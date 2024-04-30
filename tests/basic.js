@@ -21,7 +21,7 @@ import {
   tagWithCurrentStageProfile,
 } from '../lib/k6-utils/1.4.0/index.js'
 
-import pyroscope from "../lib/http-instrumentation-pyroscope/v1.0.0/index.js"
+import pyroscope from "../lib/http-instrumentation-pyroscope/1.0.0/index.js"
 
 initContractPlugin(chai)
 
