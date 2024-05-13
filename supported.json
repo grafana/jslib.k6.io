@@ -65,15 +65,14 @@
       "0.8.1",
       "0.9.0",
       "0.10.0",
-      "0.11.0"
+      "0.11.0",
+      "0.12.0"
     ],
     "bundle-filename": "aws.js",
     "docs-url": "https://grafana.com/docs/k6/latest/javascript-api/jslib/aws"
   },
   "http-instrumentation-pyroscope": {
-    "versions": [
-      "1.0.0"
-    ],
+    "versions": ["1.0.0"],
     "docs-url": "https://grafana.com/docs/k6/latest/javascript-api/jslib/http-instrumentation-pyroscope/"
   }
 }
