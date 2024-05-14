@@ -6,26 +6,26 @@ import {
   KinesisClient as globalKinesisClient,
   LambdaClient as globalLambdaClient,
   EventBridgeClient as globalEventBridgeClient,
-} from '../lib/aws/0.12.0/aws.js'
-import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.12.0/s3.js'
+} from '../lib/aws/0.12.1/aws.js'
+import { AWSConfig as s3AWSConfig, S3Client as s3S3Client } from '../lib/aws/0.12.1/s3.js'
 import {
   AWSConfig as smAWSConfig,
   SecretsManagerClient as smSecretsManagerClient,
-} from '../lib/aws/0.12.0/secrets-manager.js'
-import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.12.0/kms.js'
-import { SignatureV4 } from '../lib/aws/0.12.0/signature.js'
+} from '../lib/aws/0.12.1/secrets-manager.js'
+import { AWSConfig as kmsAWSConfig, KMSClient as kmsKMSClient } from '../lib/aws/0.12.1/kms.js'
+import { SignatureV4 } from '../lib/aws/0.12.1/signature.js'
 import {
   AWSConfig as kinesisAWSConfig,
   KinesisClient as kinesisKinesisClient,
-} from '../lib/aws/0.12.0/kinesis.js'
+} from '../lib/aws/0.12.1/kinesis.js'
 import {
   AWSConfig as lambdaAWSConfig,
   LambdaClient as lambdaLambdaClient,
-} from '../lib/aws/0.12.0/lambda.js'
+} from '../lib/aws/0.12.1/lambda.js'
 import {
   AWSConfig as eventBridgeAWSConfig,
   EventBridgeClient as eventBridgeEventBridgeClient,
-} from '../lib/aws/0.12.0/event-bridge.js'
+} from '../lib/aws/0.12.1/event-bridge.js'
 
 function testAWS() {
   // We can't really test the underlying AWS implementation
