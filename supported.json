@@ -40,7 +40,7 @@
     "docs-url": "https://github.com/grafana/k6-jslib-k6chaijs"
   },
   "k6chaijs-contracts": {
-    "versions": ["4.3.4.0"],
+    "versions": ["4.3.4.0", "4.3.4.1"],
     "docs-url": "https://github.com/grafana/k6-jslib-k6chaijs-contracts"
   },
   "url": {

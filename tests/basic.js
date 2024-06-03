@@ -6,7 +6,7 @@ import formurlencoded from '../lib/form-urlencoded/3.0.0/index.js'
 import papaparse from '../lib/papaparse/5.1.1/index.js'
 import { describe } from '../lib/kahwah/0.1.6/index.js'
 import { Httpx } from '../lib/httpx/0.0.6/index.js'
-import { initContractPlugin } from '../lib/k6chaijs-contracts/4.3.4.0/index.js'
+import { initContractPlugin } from '../lib/k6chaijs-contracts/4.3.4.1/index.js'
 import chai, { expect, describe as chaidescribe } from '../lib/k6chaijs/4.3.4.2/index.js'
 import testk6chaijs from './k6chai.js'
 import {
