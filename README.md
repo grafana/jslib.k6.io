@@ -7,6 +7,9 @@ To make life a little easier during development, make sure to install the follow
 - node >= 11.2.0
 - yarn >= 1.13.0
 
+> [!IMPORTANT]  
+> We don't accept external contributions containing minified code for this project. For such cases, we expect the maintainer who reviewed the source code to distribute the changes. The distribution should usually happen after merging the pull request in the sub-project. If that didn't happen, please open [a new issue](https://github.com/grafana/jslib.k6.io/issues).
+
 ## How to add a new JS package
 
 1. Create a new branch from the `main` branch.
