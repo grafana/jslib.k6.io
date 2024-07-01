@@ -17,6 +17,7 @@ const createLink = (name, version, main) => {
 const versionsTable = () => {
   const supported = require('../supported.json')
   const trs = Object.entries(supported)
+    .filter(([_, lib]) => lib.published !== false)
     .map(([name, lib]) => {
       const bundleFilename = lib['bundle-filename'] ?? 'index.js'
       const versionLinks = lib.versions
