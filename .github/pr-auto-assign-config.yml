@@ -24,7 +24,6 @@ useReviewGroups: true
 # A list of reviewers, split into different groups, to be added to pull requests (GitHub user name)
 reviewGroups:
   k6devs:
-    - na--
     - mstoykov
     - codebien
     - oleiade
