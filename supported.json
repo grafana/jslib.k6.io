@@ -1,6 +1,6 @@
 {
   "k6-utils": {
-    "versions": ["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0"],
+    "versions": ["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0", "1.6.0"],
     "docs-url": "https://grafana.com/docs/k6/latest/javascript-api/jslib/utils"
   },
   "k6-summary": {
