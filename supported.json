@@ -7,6 +7,10 @@
     "versions": ["0.0.1", "0.0.2", "0.0.3", "0.0.4", "0.1.0"],
     "docs-url": "https://github.com/grafana/k6-jslib-summary"
   },
+  "k6-testing": {
+    "versions": ["0.1.0"],
+    "docs-url": "https://github.com/grafana/k6-jslib-testing"
+  },
   "k6-replay": {
     "versions": ["1.0.0"],
     "docs-url": "https://grafana.com/docs/k6/latest/using-k6-browser#todo",
