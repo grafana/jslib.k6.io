@@ -1,1 +1,17 @@
 *       @grafana/k6-core @grafana/k6-frontend
+
+/lib/k6-utils @grafana/k6-core
+/lib/k6-summary @grafana/k6-core
+/lib/httpx @grafana/k6-core
+/lib/url @grafana/k6-core
+/lib/http-instrumentation-pyroscope @grafana/k6-core
+/lib/http-instrumentation-tempo @grafana/k6-core
+/lib/aws @grafana/k6-core
+/lib/k6-testing @grafana/k6-core
+
+/lib/jsonpath @grafana/k6-frontend
+/lib/form-urlencoded @grafana/k6-frontend
+/lib/jsonpath @grafana/k6-frontend
+/lib/k6chaijs @grafana/k6-frontend
+/lib/papaparse @grafana/k6-frontend
+/lib/ajv @grafana/k6-frontend
