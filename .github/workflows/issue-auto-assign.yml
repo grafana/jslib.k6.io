@@ -20,16 +20,16 @@ jobs:
           script: |
             const assigneeCount = 1;
             
-            const core = {
-              assignees: ['mstoykov', 'codebien', 'oleiade', 'joanlopez', 'inancgumus'],
+            const k6engine = {
+              assignees: ['ankur22', 'mstoykov', 'codebien', 'oleiade', 'joanlopez', 'inancgumus'],
               keywords: ['utils', 'summary', 'httpx', 'url'],
             }
-            const frontend = {
+            const k6frontend = {
               assignees: ['legander', 'w1kman', 'allansson', 'going-confetti', '2Steaks', 'e-fisher', 'EdvinasDaugirdas'],
               keywords: ['jsonpath', 'urlencoded', 'chaijs', 'paparse', 'ajv'],
             }
             
-            const teams = [core, frontend]
+            const teams = [k6engine, k6frontend]
             const allAssignees = teams.flatMap((team) => team.assignees);
 
             // Do not automatically assign users if someone was already assigned or it was opened by a maintainer
