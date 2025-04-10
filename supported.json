@@ -85,7 +85,7 @@
     "docs-url": "https://grafana.com/docs/k6/latest/javascript-api/jslib/aws"
   },
   "http-instrumentation-pyroscope": {
-    "versions": ["1.0.0", "1.0.1"],
+    "versions": ["1.0.0", "1.0.1", "1.0.2"],
     "docs-url": "https://grafana.com/docs/k6/latest/javascript-api/jslib/http-instrumentation-pyroscope/"
   },
   "http-instrumentation-tempo": {
