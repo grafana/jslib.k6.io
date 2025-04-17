@@ -5,7 +5,6 @@ import jsonpath from '../lib/jsonpath/1.0.2/index.js'
 import formurlencoded from '../lib/form-urlencoded/3.0.0/index.js'
 import papaparse from '../lib/papaparse/5.1.1/index.js'
 import { describe } from '../lib/kahwah/0.1.6/index.js'
-import { Httpx } from '../lib/httpx/0.0.6/index.js'
 import { initContractPlugin } from '../lib/k6chaijs-contracts/4.3.4.0/index.js'
 import chai, { expect, describe as chaidescribe } from '../lib/k6chaijs/4.5.0.0/index.js'
 import testk6chaijs from './k6chai.js'
@@ -20,6 +19,13 @@ import {
   tagWithCurrentStageIndex,
   tagWithCurrentStageProfile,
 } from '../lib/k6-utils/1.4.0/index.js'
+import pyroscope from '../lib/http-instrumentation-pyroscope/1.0.2/index.js'
+import tempo from '../lib/http-instrumentation-tempo/1.0.1/index.js'
+
+pyroscope.instrumentHTTP()
+tempo.instrumentHTTP({
+  propagator: "w3c",
+})
 
 initContractPlugin(chai)
 
@@ -155,6 +161,14 @@ function testk6chaijscontracts() {
   })
 }
 
+function testHTTPInstrumentation() {
+  const res = http.get('https://httpbin.test.k6.io/anything')
+  const req = JSON.parse(res.body)
+
+  expect(req.headers['Traceparent']).to.match(/^00-[0-9a-f]{32}-[0-9a-f]{16}-[01]{2}$/)
+  expect(req.headers['Baggage']).to.contain('k6.test_run_id').and.contain('k6.scenario').and.contain('k6.name')
+}
+
 export {
   testJsonPath,
   testFormurlencoded,
@@ -171,4 +185,5 @@ export {
   testTagWithCurrentStageProfile,
   testk6chaijs,
   testk6chaijscontracts,
+  testHTTPInstrumentation,
 }

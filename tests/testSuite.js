@@ -31,6 +31,7 @@ import {
   testTagWithCurrentStageProfile,
   testk6chaijs,
   testk6chaijscontracts,
+  testHTTPInstrumentation,
 } from './basic.js'
 
 let testCasesOK = new Rate('test_case_ok')
@@ -63,6 +64,7 @@ const testCases = [
   testPyroscopeRequestWithParams,
   testTempoW3CPropagator,
   testTempoJaegerPropagator,
+  testHTTPInstrumentation,
 ]
 
 export const options = {
