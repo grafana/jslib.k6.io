@@ -12,6 +12,10 @@ import {
   testPyroscopeRequestWithParams,
 } from './instrumentation-pyroscope.js'
 import {
+  testTempoW3CPropagator,
+  testTempoJaegerPropagator,
+} from './instrumentation-tempo.js'
+import {
   testJsonPath,
   testFormurlencoded,
   testPapaparse,
@@ -57,6 +61,8 @@ const testCases = [
   testPyroscopeNoBody,
   testPyroscopeWithBody,
   testPyroscopeRequestWithParams,
+  testTempoW3CPropagator,
+  testTempoJaegerPropagator,
 ]
 
 export const options = {
