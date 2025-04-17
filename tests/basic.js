@@ -21,14 +21,6 @@ import {
   tagWithCurrentStageProfile,
 } from '../lib/k6-utils/1.4.0/index.js'
 
-import pyroscope from "../lib/http-instrumentation-pyroscope/1.0.2/index.js"
-import tempo from "../lib/http-instrumentation-tempo/1.0.1/index.js"
-
-pyroscope.instrumentHTTP()
-tempo.instrumentHTTP({
-  propagator: "w3c",
-})
-
 initContractPlugin(chai)
 
 function testJsonPath() {

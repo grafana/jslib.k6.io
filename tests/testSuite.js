@@ -7,6 +7,11 @@ import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
 import {
+  testPyroscopeNoBody,
+  testPyroscopeWithBody,
+  testPyroscopeRequestWithParams,
+} from './instrumentation-pyroscope.js'
+import {
   testJsonPath,
   testFormurlencoded,
   testPapaparse,
@@ -49,6 +54,9 @@ const testCases = [
   testNormalDistributionStages,
   testRandomString,
   testAWS,
+  testPyroscopeNoBody,
+  testPyroscopeWithBody,
+  testPyroscopeRequestWithParams,
 ]
 
 export const options = {
