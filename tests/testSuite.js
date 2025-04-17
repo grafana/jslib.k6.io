@@ -7,6 +7,15 @@ import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
 import {
+  testPyroscopeNoBody,
+  testPyroscopeWithBody,
+  testPyroscopeRequestWithParams,
+} from './instrumentation-pyroscope.js'
+import {
+  testTempoW3CPropagator,
+  testTempoJaegerPropagator,
+} from './instrumentation-tempo.js'
+import {
   testJsonPath,
   testFormurlencoded,
   testPapaparse,
@@ -22,6 +31,7 @@ import {
   testTagWithCurrentStageProfile,
   testk6chaijs,
   testk6chaijscontracts,
+  testHTTPInstrumentation,
 } from './basic.js'
 
 let testCasesOK = new Rate('test_case_ok')
@@ -49,6 +59,12 @@ const testCases = [
   testNormalDistributionStages,
   testRandomString,
   testAWS,
+  testPyroscopeNoBody,
+  testPyroscopeWithBody,
+  testPyroscopeRequestWithParams,
+  testTempoW3CPropagator,
+  testTempoJaegerPropagator,
+  testHTTPInstrumentation,
 ]
 
 export const options = {
