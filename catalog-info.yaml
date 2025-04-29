@@ -6,7 +6,6 @@ metadata:
   description: |
     jslib.k6.io, hosted utility libs for k6 scripts.
   annotations:
-    backstage.io/techdocs-ref: dir:.
     github.com/project-slug: grafana/jslib.k6.io
 spec:
   type: website
