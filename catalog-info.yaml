@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: jslib.k6.io
+  title: jslib.k6.io
+  description: |
+    jslib.k6.io, hosted utility libs for k6 scripts.
+  annotations:
+    github.com/project-slug: grafana/jslib.k6.io
+spec:
+  type: website
+  owner: group:default/k6-core
+  lifecycle: production
