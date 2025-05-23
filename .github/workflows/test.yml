@@ -26,8 +26,9 @@ jobs:
 
   test-base:
     needs: setup
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       
@@ -44,8 +45,9 @@ jobs:
 
   test-extended:
     needs: setup
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
