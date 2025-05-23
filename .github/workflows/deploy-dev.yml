@@ -1,28 +1,26 @@
-name: deploy-production
+name: deploy-dev
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'lib/**'
+  workflow_dispatch:
 
 permissions: {}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      S3_BUCKET_ID: prod-us-east-0-jslib-k6-io-website
-      CLOUDFRONT_DISTRIBUTION_ID: E2GTCZBXCV8MU0
     permissions:
       contents: read
       id-token: write
+    env:
+      S3_BUCKET_ID: dev-us-east-0-jslib-k6-io-website
+      CLOUDFRONT_DISTRIBUTION_ID: EM434H1NWE8NZ
     steps:
       - uses: actions/checkout@v4
         
-      - uses: grafana/shared-workflows/actions/get-vault-secrets@get-vault-secrets-v1.2.0
+      - id: get-secrets 
+        uses: grafana/shared-workflows/actions/get-vault-secrets@get-vault-secrets-v1.2.0
         with:
+          vault_instance: dev
           repo_secrets: |
             # arn:.../k6-jslib-uploader-role
             IAM_ROLE_ARN=deploy:uploader-iam-role 
