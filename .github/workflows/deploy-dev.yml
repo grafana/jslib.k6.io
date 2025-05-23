@@ -21,8 +21,8 @@ jobs:
         uses: grafana/shared-workflows/actions/get-vault-secrets@get-vault-secrets-v1.2.0
         with:
           vault_instance: dev
+          # arn:.../k6-jslib-uploader-role
           repo_secrets: |
-            # arn:.../k6-jslib-uploader-role
             IAM_ROLE_ARN=deploy:uploader-iam-role 
 
       - name: aws-auth
