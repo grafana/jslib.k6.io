@@ -69,7 +69,7 @@ const testCases = [
 
 export const options = {
   vus: 1,
-  iterations: testCases.length,
+  iterations: 10,
   thresholds: {
     checks: ['rate==1.0'],
     test_case_ok: ['rate==1.0'],

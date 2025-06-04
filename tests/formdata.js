@@ -15,7 +15,7 @@ exports.testPost = function () {
   fd.append('text', http.file('hello', 'hello.txt', 'text/plain'))
   fd.append('textField', 'world')
   fd.append('anotherField', '!')
-  var res = http.post('https://httpbin.test.k6.io/post', fd.body(), {
+  var res = http.post('https://httpbin.org/post', fd.body(), {
     headers: { 'Content-Type': 'multipart/form-data; boundary=' + fd.boundary },
   })
   var checks = {
