@@ -10,7 +10,7 @@ var testCases = [
 
 exports.options = {
   vus: 1,
-  iterations: 1,
+  iterations: testCases.length,
   thresholds: {
     checks: ['rate==1.0'],
     test_case_ok: ['rate==1.0'],

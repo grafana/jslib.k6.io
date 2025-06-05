@@ -6,12 +6,11 @@ function testTempoW3CPropagator() {
         propagator: 'w3c',
     })
 
-    const res = client.request('GET', 'https://httpbin.test.k6.io/anything')
-    const req = JSON.parse(res.body)
+    const res = client.request('GET', 'https://quickpizza.grafana.com/api/doughs')
 
-    if (check(req, { 'contains traceparent header': (req) => req.headers['Traceparent'] != null })) {
-        check(req, {
-            'traceparent header is valid': (req) => req.headers['Traceparent'].match(/^00-[0-9a-f]{32}-[0-9a-f]{16}-[01]{2}$/),
+    if (check(res.request, { 'contains traceparent header': (req) => req.headers['Traceparent'] != null })) {
+        check(res.request, {
+            'traceparent header is valid': (req) => String(req.headers['Traceparent']).match(/^00-[0-9a-f]{32}-[0-9a-f]{16}-[01]{2}$/),
         })
     }
 }
@@ -21,13 +20,11 @@ function testTempoJaegerPropagator() {
         propagator: 'jaeger',
     })
 
-    const res = client.request('GET', 'https://httpbin.test.k6.io/anything')
-    const req = JSON.parse(res.body)
+    const res = client.request('GET', 'https://quickpizza.grafana.com/api/doughs')
 
-    if (check(req, { 'contains uber-trace-id header': (req) => req.headers['Uber-Trace-Id'] != null })) {
-        console.log(req.headers['Uber-Trace-Id'])
-        check(req, {
-            'uber-trace-id header is valid': (req) => req.headers['Uber-Trace-Id'].match(/^[0-9a-f]{32}:[0-9a-f]{8}:0:[01]$/),
+    if (check(res.request, { 'contains uber-trace-id header': (req) => res.request.headers['Uber-Trace-Id'] != null })) {
+        check(res.request, {
+            'uber-trace-id header is valid': (req) => String(req.headers['Uber-Trace-Id']).match(/^[0-9a-f]{32}:[0-9a-f]{8}:0:[01]$/),
         })
     }
 }
