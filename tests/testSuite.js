@@ -50,7 +50,7 @@ const testCases = [
   papaparseTest,
   httpxBatchTest,
   newAjv,
-  // CrocFlow, // TODO: test.k6.io is not avilabe anymore; migrate to quickpizza
+  // CrocFlow, // TODO: test.k6.io is not available anymore; migrate to quickpizza
   testKahwah,
   httpxTestAbsoluteURLs,
   testk6chaijs,
