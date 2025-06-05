@@ -4,6 +4,10 @@ var FormData = require('../lib/formdata/0.0.2/index.js').FormData
 
 var logo = open('./data/logo.png', 'b')
 
+// TODO: httpbin.test.k6.io has been shutdown so the test has been migrated to httpbin.org
+// to fix the immediate issue and unblock the development.
+// However, it requires to be migrated to quickpizza.grafana.com to be stable on the long-term,
+// because httpbin.org isn't reliable enough for our use case.
 exports.testPost = function () {
   var fd = new FormData()
   fd.append('binArray', http.file(logo, 'logo.png', 'image/png'))
@@ -15,7 +19,7 @@ exports.testPost = function () {
   fd.append('text', http.file('hello', 'hello.txt', 'text/plain'))
   fd.append('textField', 'world')
   fd.append('anotherField', '!')
-  var res = http.post('https://httpbin.test.k6.io/post', fd.body(), {
+  var res = http.post('https://httpbin.org/post', fd.body(), {
     headers: { 'Content-Type': 'multipart/form-data; boundary=' + fd.boundary },
   })
   var checks = {

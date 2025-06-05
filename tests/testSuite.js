@@ -50,7 +50,7 @@ const testCases = [
   papaparseTest,
   httpxBatchTest,
   newAjv,
-  CrocFlow,
+  // CrocFlow, // TODO: test.k6.io is not available anymore; migrate to quickpizza
   testKahwah,
   httpxTestAbsoluteURLs,
   testk6chaijs,
@@ -82,7 +82,7 @@ export default function () {
     testCasesOK.add(true)
   } catch (e) {
     testCasesOK.add(false)
-    console.log(`test case at index ${__ITER} has failed`)
+    console.log(`test case "${testCases[__ITER].name}" has failed`)
     throw e
   }
 }

@@ -155,18 +155,16 @@ function testk6chaijscontracts() {
   }
 
   chaidescribe('[Crocs service] Fetch list of crocs', () => {
-    let response = http.get('https://test-api.k6.io/public/crocodiles')
+    let response = http.get('https://quickpizza.grafana.com/api/doughs')
     expect(response).to.have.validJsonBody()
     expect(response.json(), 'Croc List schema').to.matchSchema(crocodileListAPIcontract)
   })
 }
 
 function testHTTPInstrumentation() {
-  const res = http.get('https://httpbin.test.k6.io/anything')
-  const req = JSON.parse(res.body)
-
-  expect(req.headers['Traceparent']).to.match(/^00-[0-9a-f]{32}-[0-9a-f]{16}-[01]{2}$/)
-  expect(req.headers['Baggage']).to.contain('k6.test_run_id').and.contain('k6.scenario').and.contain('k6.name')
+  const res = http.get('https://quickpizza.grafana.com/api/doughs')
+  expect(String(res.request.headers['Traceparent'])).to.match(/^00-[0-9a-f]{32}-[0-9a-f]{16}-[01]{2}$/)
+  expect(String(res.request.headers['Baggage'])).to.contain('k6.test_run_id').and.contain('k6.scenario').and.contain('k6.name')
 }
 
 export {
