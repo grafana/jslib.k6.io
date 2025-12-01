@@ -10,6 +10,6 @@ jobs:
     if: ${{ join(github.event.pull_request.requested_reviewers.*.login, ',') == '' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/auto-assign-action@60730395fd3afb76c7407e16cd4b144fbbcf28a6 # v1.2.3
+      - uses: kentaro-m/auto-assign-action@ed73f90568ce37d22dbbd1a73983738fae329f53 # v1.2.6
         with:
           configuration-path: '.github/pr-auto-assign-config.yml'
