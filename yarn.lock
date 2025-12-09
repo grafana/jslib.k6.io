@@ -1184,9 +1184,9 @@ core-js-compat@^3.6.2:
     semver "7.0.0"
 
 core-js@^3.6.5:
-  version "3.6.5"
-  resolved "https://registry.npmjs.org/core-js/-/core-js-3.6.5.tgz"
-  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
+  version "3.47.0"
+  resolved "https://registry.npmjs.org/core-js/-/core-js-3.47.0.tgz"
+  integrity sha512-c3Q2VVkGAUyupsjRnaNX6u8Dq2vAdzm9iuPj5FW0fRxzlxgq9Q39MDq10IvmQSpLgHQNyQzQmOo6bgGHmH3NNg==
 
 debug@^3.2.7:
   version "3.2.7"
@@ -1481,10 +1481,10 @@ jsonpath@^1.1.1:
     static-eval "2.0.2"
     underscore "1.12.1"
 
-kahwah@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.npmjs.org/kahwah/-/kahwah-0.1.6.tgz"
-  integrity sha512-BfWMAGOZYKxptWs2tZN+0f/Ot0l3J3riIElJ+zuw/Sw7aa/1+mSYlqqGhMu3lAKg3iuk+Q9DWtPjhiQTnkSRnw==
+kahwah@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/kahwah/-/kahwah-0.1.11.tgz#9d70b5ab54bbdeb0552432ed5c82999a0e9ee0a3"
+  integrity sha512-uxSDzBzkk9RzDgD18uZ3+4qo0yTm1DxOhXRMuKcvTI40m9MmutgZaezZr9BERlWxk3a9lDakkuCe+dMl6yGfZw==
 
 levn@~0.3.0:
   version "0.3.0"
