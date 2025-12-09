@@ -15,10 +15,10 @@ jobs:
       S3_BUCKET_ID: dev-us-east-0-jslib-k6-io-website
       CLOUDFRONT_DISTRIBUTION_ID: EM434H1NWE8NZ
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         
       - id: get-secrets 
-        uses: grafana/shared-workflows/actions/get-vault-secrets@get-vault-secrets-v1.2.0
+        uses: grafana/shared-workflows/actions/get-vault-secrets@5d7e361bc7e0a183cde8afe9899fb7b596d2659b # get-vault-secrets-v1.2.0
         with:
           vault_instance: dev
           # arn:.../k6-jslib-uploader-role
@@ -26,7 +26,7 @@ jobs:
             IAM_ROLE_ARN=deploy:uploader-iam-role 
 
       - name: aws-auth
-        uses: grafana/shared-workflows/actions/aws-auth@aws-auth-v1.0.1
+        uses: grafana/shared-workflows/actions/aws-auth@abb283a39f2ddc434391d0e5d9a994f74bf20e35 # aws-auth-v1.0.1
         with:
           aws-region: 'us-west-1'
           role-arn: '${{ env.IAM_ROLE_ARN }}'
