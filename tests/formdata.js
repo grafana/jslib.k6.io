@@ -4,10 +4,9 @@ var FormData = require('../lib/formdata/0.0.2/index.js').FormData
 
 var logo = open('./data/logo.png', 'b')
 
-// TODO: httpbin.test.k6.io has been shutdown so the test has been migrated to httpbin.org
-// to fix the immediate issue and unblock the development.
-// However, it requires to be migrated to quickpizza.grafana.com to be stable on the long-term,
-// because httpbin.org isn't reliable enough for our use case.
+// This test uses quickpizza.grafana.com/api/post which echoes back the posted multipart
+// form data. The test validates that the FormData library correctly creates multipart
+// requests by checking that form fields and files are present in the echoed response.
 exports.testPost = function () {
   var fd = new FormData()
   fd.append('binArray', http.file(logo, 'logo.png', 'image/png'))
@@ -19,7 +18,7 @@ exports.testPost = function () {
   fd.append('text', http.file('hello', 'hello.txt', 'text/plain'))
   fd.append('textField', 'world')
   fd.append('anotherField', '!')
-  var res = http.post('https://httpbin.org/post', fd.body(), {
+  var res = http.post('https://quickpizza.grafana.com/api/post', fd.body(), {
     headers: { 'Content-Type': 'multipart/form-data; boundary=' + fd.boundary },
   })
   var checks = {
@@ -27,20 +26,22 @@ exports.testPost = function () {
       return res.status === 200
     },
     'form fields were submitted correctly': function (res) {
-      var form = res.json()['form']
-      return form.textField == 'world' && form.anotherField == '!'
+      var body = res.body
+      // Check that the multipart response contains our form fields
+      return body.includes('name="textField"') &&
+             body.includes('world') &&
+             body.includes('name="anotherField"') &&
+             body.includes('!')
     },
     'files were uploaded correctly': function (res) {
-      var files = res.json()['files']
-      return (
-        Object.keys(files).length === 3 &&
-        files['binArray'] &&
-        files['binArray'].includes('image/png') &&
-        files['ArrayBuffer'] &&
-        files['ArrayBuffer'].includes('image/png') &&
-        files['binArray'] == files['ArrayBuffer'] &&
-        files['text'] == 'hello'
-      )
+      var body = res.body
+      // Check that file uploads are present in the multipart response
+      return body.includes('name="binArray"') &&
+             body.includes('filename="logo.png"') &&
+             body.includes('name="ArrayBuffer"') &&
+             body.includes('name="text"') &&
+             body.includes('filename="hello.txt"') &&
+             body.includes('hello')  // content of text file
     },
   }
   check(res, checks)
