@@ -28,7 +28,7 @@ jobs:
             IAM_ROLE_ARN=deploy:uploader-iam-role 
 
       - name: aws-auth
-        uses: grafana/shared-workflows/actions/aws-auth@abb283a39f2ddc434391d0e5d9a994f74bf20e35 # aws-auth-v1.0.1
+        uses: grafana/shared-workflows/actions/aws-auth@85022085ed5314601c05d10e846de56bdd71e369 # aws-auth/v1.0.3
         with:
           aws-region: 'us-west-1'
           role-arn: '${{ env.IAM_ROLE_ARN }}'
