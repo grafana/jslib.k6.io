@@ -1285,10 +1285,10 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-form-urlencoded@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/form-urlencoded/-/form-urlencoded-3.0.2.tgz"
-  integrity sha512-FurPsZ7yfmbX+Vl9ibn/PK5EkeScj/inKtCqx9vc9EOlzh6p6VhanfeIjtDk/kCGrWVbCVW8M3GA7zX3udmgHw==
+form-urlencoded@^6.0.0:
+  version "6.1.6"
+  resolved "https://registry.npmjs.org/form-urlencoded/-/form-urlencoded-6.1.6.tgz"
+  integrity sha512-0a2GKWoNjT55lPrjZWFUiJ8rK9e3rihCyNqZP2k/GSPfkjemZoDrYrNsvRSQHrKJ4qnD/wXj7KSQomz/lbF2Ew==
 
 fsevents@~2.3.2:
   version "2.3.2"
