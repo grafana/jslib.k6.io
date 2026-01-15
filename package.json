@@ -23,8 +23,8 @@
     "kahwah": "^0.1.6"
   },
   "devDependencies": {
-    "@babel/core": "7.28.5",
-    "@babel/preset-env": "7.28.5",
+    "@babel/core": "7.28.6",
+    "@babel/preset-env": "7.28.6",
     "babel-loader": "10.0.0",
     "nodemon": "3.1.11",
     "webpack": "5.99.9"
