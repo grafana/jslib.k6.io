@@ -32,6 +32,7 @@ import {
   testk6chaijs,
   testk6chaijscontracts,
   testHTTPInstrumentation,
+  testSmScreenshots,
 } from './basic.js'
 
 let testCasesOK = new Rate('test_case_ok')
@@ -65,6 +66,7 @@ const testCases = [
   testTempoW3CPropagator,
   testTempoJaegerPropagator,
   testHTTPInstrumentation,
+  testSmScreenshots,
 ]
 
 export const options = {

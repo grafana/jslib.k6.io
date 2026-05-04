@@ -21,6 +21,7 @@ import {
 } from '../lib/k6-utils/1.4.0/index.js'
 import pyroscope from '../lib/http-instrumentation-pyroscope/1.0.2/index.js'
 import tempo from '../lib/http-instrumentation-tempo/1.0.1/index.js'
+import { captureScreenshot, loki, gcs } from '../lib/sm-screenshots/0.1.0/index.js'
 
 pyroscope.instrumentHTTP()
 tempo.instrumentHTTP({
@@ -167,6 +168,16 @@ function testHTTPInstrumentation() {
   expect(String(res.request.headers['Baggage'])).to.contain('k6.test_run_id').and.contain('k6.scenario').and.contain('k6.name')
 }
 
+function testSmScreenshots() {
+  check(null, {
+    'captureScreenshot is a function': () => typeof captureScreenshot === 'function',
+    'loki is a function': () => typeof loki === 'function',
+    'gcs is a function': () => typeof gcs === 'function',
+    'loki() returns a store with upload': () => typeof loki().upload === 'function',
+    'gcs() returns a store with upload': () => typeof gcs().upload === 'function',
+  })
+}
+
 export {
   testJsonPath,
   testFormurlencoded,
@@ -184,4 +195,5 @@ export {
   testk6chaijs,
   testk6chaijscontracts,
   testHTTPInstrumentation,
+  testSmScreenshots,
 }
