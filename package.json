@@ -1,7 +1,7 @@
 {
   "name": "k6-js-lib",
   "version": "1.0.0",
-  "packageManager": "npm@10.9.2",
+  "packageManager": "npm@10.9.8",
   "main": "index.js",
   "repository": "git@github.com:loadimpact/k6-js-lib.git",
   "homepage": "https://jslib.k6.io",
