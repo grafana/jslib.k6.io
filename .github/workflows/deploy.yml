@@ -21,17 +21,19 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         
-      - uses: grafana/shared-workflows/actions/get-vault-secrets@a53fc80bc30b0a16a262520465db899fa3af08b7 # get-vault-secrets/v1.3.2
+      - id: get-secrets
+        uses: grafana/shared-workflows/actions/get-vault-secrets@a53fc80bc30b0a16a262520465db899fa3af08b7 # get-vault-secrets/v1.3.2
         with:
+          export_env: false
           # arn:.../k6-jslib-uploader-role
           repo_secrets: |
-            IAM_ROLE_ARN=deploy:uploader-iam-role 
+            IAM_ROLE_ARN=deploy:uploader-iam-role
 
       - name: aws-auth
         uses: grafana/shared-workflows/actions/aws-auth@85022085ed5314601c05d10e846de56bdd71e369 # aws-auth/v1.0.3
         with:
           aws-region: 'us-west-1'
-          role-arn: '${{ env.IAM_ROLE_ARN }}'
+          role-arn: '${{ fromJSON(steps.get-secrets.outputs.secrets).IAM_ROLE_ARN }}'
           set-creds-in-environment: true
 
       - name: Deploy lib to s3
