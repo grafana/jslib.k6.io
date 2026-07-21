@@ -15,7 +15,7 @@ jobs:
       S3_BUCKET_ID: dev-us-east-0-jslib-k6-io-website
       CLOUDFRONT_DISTRIBUTION_ID: EM434H1NWE8NZ
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         
       - id: get-secrets
         uses: grafana/shared-workflows/actions/get-vault-secrets@e46fe1e9a2bf9e618bcf8d8d32f3a7381b45c06d # get-vault-secrets/v2.0.0
