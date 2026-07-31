@@ -30,6 +30,18 @@
     "nodemon": "3.1.14",
     "webpack": "5.106.2"
   },
+  "overrides": {
+    "@babel/plugin-transform-modules-systemjs": "^7.29.4",
+    "brace-expansion": "^5.0.8",
+    "fast-uri": "^3.1.4",
+    "underscore": "^1.13.8"
+  },
+  "resolutions": {
+    "@babel/plugin-transform-modules-systemjs": "^7.29.4",
+    "brace-expansion": "^5.0.8",
+    "fast-uri": "^3.1.4",
+    "underscore": "^1.13.8"
+  },
   "prettier": {
     "trailingComma": "es5",
     "semi": false,
