@@ -7,6 +7,11 @@ import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
 import {
+  SslcheckDaysUntilExpiry,
+  SslcheckHealthyCertificate,
+  SslcheckIsFunction,
+} from './sslcheck.js'
+import {
   testPyroscopeNoBody,
   testPyroscopeWithBody,
   testPyroscopeRequestWithParams,
@@ -67,6 +72,9 @@ const testCases = [
   testTempoJaegerPropagator,
   testHTTPInstrumentation,
   testSmScreenshots,
+  SslcheckDaysUntilExpiry,
+  SslcheckHealthyCertificate,
+  SslcheckIsFunction,
 ]
 
 export const options = {
