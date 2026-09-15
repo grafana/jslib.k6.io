@@ -6,6 +6,7 @@ import { newAjv } from './ajv-test.js'
 import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
+import { LinkcheckExtractLinks, LinkcheckIsFunction } from './linkcheck.js'
 import {
   testPyroscopeNoBody,
   testPyroscopeWithBody,
@@ -67,6 +68,8 @@ const testCases = [
   testTempoJaegerPropagator,
   testHTTPInstrumentation,
   testSmScreenshots,
+  LinkcheckExtractLinks,
+  LinkcheckIsFunction,
 ]
 
 export const options = {
