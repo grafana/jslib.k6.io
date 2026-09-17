@@ -61,3 +61,6 @@ jobs:
 
       - name: Run tests
         run: ./k6 run tests/testSuite.js
+
+      - name: Run sm-sslcheck failure-path tests
+        run: ./k6 run tests/sslcheck-failures.js

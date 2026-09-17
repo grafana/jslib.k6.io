@@ -100,5 +100,9 @@
   "sm-screenshots": {
     "versions": ["0.1.0"],
     "docs-url": "https://github.com/grafana/k6-jslib-sm-screenshots"
+  },
+  "sm-sslcheck": {
+    "versions": ["0.1.0"],
+    "published": false
   }
 }
