@@ -104,5 +104,9 @@
   "sm-linkcheck": {
     "versions": ["0.1.0"],
     "published": false
+  },
+  "sm-sslcheck": {
+    "versions": ["0.1.0"],
+    "published": false
   }
 }

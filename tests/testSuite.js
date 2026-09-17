@@ -8,6 +8,11 @@ import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
 import { LinkcheckExtractLinks, LinkcheckIsFunction } from './linkcheck.js'
 import {
+  SslcheckDaysUntilExpiry,
+  SslcheckHealthyCertificate,
+  SslcheckIsFunction,
+} from './sslcheck.js'
+import {
   testPyroscopeNoBody,
   testPyroscopeWithBody,
   testPyroscopeRequestWithParams,
@@ -70,6 +75,9 @@ const testCases = [
   testSmScreenshots,
   LinkcheckExtractLinks,
   LinkcheckIsFunction,
+  SslcheckDaysUntilExpiry,
+  SslcheckHealthyCertificate,
+  SslcheckIsFunction,
 ]
 
 export const options = {
