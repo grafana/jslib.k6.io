@@ -6,6 +6,7 @@ import { newAjv } from './ajv-test.js'
 import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
+import { LinkcheckExtractLinks, LinkcheckIsFunction } from './linkcheck.js'
 import {
   SslcheckDaysUntilExpiry,
   SslcheckHealthyCertificate,
@@ -72,6 +73,8 @@ const testCases = [
   testTempoJaegerPropagator,
   testHTTPInstrumentation,
   testSmScreenshots,
+  LinkcheckExtractLinks,
+  LinkcheckIsFunction,
   SslcheckDaysUntilExpiry,
   SslcheckHealthyCertificate,
   SslcheckIsFunction,
