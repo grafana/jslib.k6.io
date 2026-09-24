@@ -18,7 +18,9 @@
   },
   "jsonpath": {
     "versions": ["1.0.2"],
-    "docs-url": "https://github.com/grafana/k6-jslib-JSONPath"
+    "docs-url": "https://github.com/grafana/k6-jslib-JSONPath",
+    "deprecated": true,
+    "deprecated-note": "Deprecated and unmaintained"
   },
   "formdata": {
     "versions": ["0.0.1", "0.0.2"],

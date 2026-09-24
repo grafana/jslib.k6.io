@@ -587,7 +587,7 @@ export default function() {
       <td><a target="_blank" href="https://jslib.k6.io/k6-testing/0.1.0/index.js">0.1.0</a>, <a target="_blank" href="https://jslib.k6.io/k6-testing/0.2.0/index.js">0.2.0</a>, <a target="_blank" href="https://jslib.k6.io/k6-testing/0.3.0/index.js">0.3.0</a>, <a target="_blank" href="https://jslib.k6.io/k6-testing/0.4.0/index.js">0.4.0</a>, <a target="_blank" href="https://jslib.k6.io/k6-testing/0.5.0/index.js">0.5.0</a>, <a target="_blank" href="https://jslib.k6.io/k6-testing/0.6.0/index.js">0.6.0</a>, <a target="_blank" href="https://jslib.k6.io/k6-testing/0.6.1/index.js">0.6.1</a></td>
       <td><a href="https://github.com/grafana/k6-jslib-testing">https://github.com/grafana/k6-jslib-testing</a></td>
     </tr><tr>
-      <td>jsonpath</td>
+      <td>jsonpath<br /><small class="text-muted">Deprecated and unmaintained</small></td>
       <td><a target="_blank" href="https://jslib.k6.io/jsonpath/1.0.2/index.js">1.0.2</a></td>
       <td><a href="https://github.com/grafana/k6-jslib-JSONPath">https://github.com/grafana/k6-jslib-JSONPath</a></td>
     </tr><tr>
@@ -658,14 +658,19 @@ export default function() {
           <h2>Examples</h2>
           <p>Importing from jslib.k6.io</p>
           <pre><code class="code language-js">// Default import
-import jsonpath from 'https://jslib.k6.io/jsonpath/1.0.2/index.js'
+import papaparse from 'https://jslib.k6.io/papaparse/5.1.1/index.js'
 
 // Non default import
-import { nonDefaultExport } from 'https://jslib.k6.io/some-js-pkg/1.0.0/index.js'
+import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js'
+
+const csvString = 'name;age\nBert;5'
+const parsed = papaparse.parse(csvString, { header: true })
+console.log(parsed.data[0].name) // Bert
+
+console.log(randomIntBetween(1, 10))
 </code></pre>
           <p>Full script showcase</p>
           <pre><code class="code language-js">import { check, sleep } from 'k6'
-import jsonpath from 'https://jslib.k6.io/jsonpath/1.0.2/index.js'
 import { randomIntBetween, randomItem, uuidv4 } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js'
 
 export const options = {
@@ -681,7 +686,7 @@ const testData = {
 
 export default function () {
   check(testData, {
-    'JSON path works': () => jsonpath.value(testData, 'user.name') === 'Batman',
+    'nested field access works': () => testData.user.name === 'Batman',
   })
 
   console.log(uuidv4())
