@@ -24,8 +24,11 @@ const versionsTable = () => {
         .map((version) => createLink(name, version, bundleFilename))
         .join(', ')
       docsLink = lib['docs-url'] ? `<a href="${lib['docs-url']}">${lib['docs-url']}</a>` : ''
+      const deprecatedNote = lib.deprecated
+        ? `<br /><small class="text-muted">${lib['deprecated-note'] || 'Deprecated'}</small>`
+        : ''
       return `<tr>
-      <td>${name}</td>
+      <td>${name}${deprecatedNote}</td>
       <td>${versionLinks}</td>
       <td>${docsLink}</td>
     </tr>`
