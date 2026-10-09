@@ -103,6 +103,10 @@
     "versions": ["0.1.0"],
     "docs-url": "https://github.com/grafana/k6-jslib-sm-screenshots"
   },
+  "k6-browser-ai": {
+    "versions": ["0.1.0"],
+    "docs-url": "https://github.com/grafana/k6-jslib-browser-ai"
+  },
   "sm-linkcheck": {
     "versions": ["0.1.0"],
     "published": false
