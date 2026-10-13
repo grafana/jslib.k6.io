@@ -22,6 +22,7 @@ import {
 import pyroscope from '../lib/http-instrumentation-pyroscope/1.0.2/index.js'
 import tempo from '../lib/http-instrumentation-tempo/1.0.1/index.js'
 import { captureScreenshot, loki, gcs } from '../lib/sm-screenshots/0.1.0/index.js'
+import { client as agento11yEvals } from '../lib/agento11y-evals/0.1.0/index.js'
 
 pyroscope.instrumentHTTP()
 tempo.instrumentHTTP({
@@ -178,6 +179,25 @@ function testSmScreenshots() {
   })
 }
 
+function testAgento11yEvals() {
+  // No credentials: the client builds, every call needs them, and run() reports instead of throwing.
+  const evals = agento11yEvals({})
+  const result = evals.experiment('exp_test').run({ testCaseId: 'case' }, () => {})
+  check(null, {
+    'agento11y-evals client builds without credentials': () => typeof evals.createExperiment === 'function',
+    'agento11y-evals pullSuite needs credentials': () => {
+      try {
+        evals.pullSuite('suite', 'v1')
+        return false
+      } catch (e) {
+        return String(e).includes('apiUrl, tenantId and token are required')
+      }
+    },
+    'agento11y-evals run() fails without throwing': () =>
+      result.passed === false && result.explanation.includes('apiUrl, tenantId and token are required'),
+  })
+}
+
 export {
   testJsonPath,
   testFormurlencoded,
@@ -196,4 +216,5 @@ export {
   testk6chaijscontracts,
   testHTTPInstrumentation,
   testSmScreenshots,
+  testAgento11yEvals,
 }
