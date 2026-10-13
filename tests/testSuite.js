@@ -6,6 +6,13 @@ import { newAjv } from './ajv-test.js'
 import { CrocFlow } from './crocFlow.js'
 import { URLWebAPI } from './url.js'
 import { testAWS } from './aws.js'
+import { BrowserAIExports } from './browser-ai.js'
+import { LinkcheckExtractLinks, LinkcheckIsFunction } from './linkcheck.js'
+import {
+  SslcheckDaysUntilExpiry,
+  SslcheckHealthyCertificate,
+  SslcheckIsFunction,
+} from './sslcheck.js'
 import {
   testPyroscopeNoBody,
   testPyroscopeWithBody,
@@ -68,6 +75,12 @@ const testCases = [
   testTempoJaegerPropagator,
   testHTTPInstrumentation,
   testSmScreenshots,
+  BrowserAIExports,
+  LinkcheckExtractLinks,
+  LinkcheckIsFunction,
+  SslcheckDaysUntilExpiry,
+  SslcheckHealthyCertificate,
+  SslcheckIsFunction,
   testAgento11yEvals,
 ]
 

@@ -18,7 +18,9 @@
   },
   "jsonpath": {
     "versions": ["1.0.2"],
-    "docs-url": "https://github.com/grafana/k6-jslib-JSONPath"
+    "docs-url": "https://github.com/grafana/k6-jslib-JSONPath",
+    "deprecated": true,
+    "deprecated-note": "Deprecated and unmaintained"
   },
   "formdata": {
     "versions": ["0.0.1", "0.0.2"],
@@ -100,6 +102,18 @@
   "sm-screenshots": {
     "versions": ["0.1.0"],
     "docs-url": "https://github.com/grafana/k6-jslib-sm-screenshots"
+  },
+  "k6-browser-ai": {
+    "versions": ["0.1.0"],
+    "docs-url": "https://github.com/grafana/k6-jslib-browser-ai"
+  },
+  "sm-linkcheck": {
+    "versions": ["0.1.0"],
+    "published": false
+  },
+  "sm-sslcheck": {
+    "versions": ["0.1.0"],
+    "published": false
   },
   "agento11y-evals": {
     "versions": ["0.1.0"]
