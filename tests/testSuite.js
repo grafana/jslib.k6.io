@@ -40,6 +40,7 @@ import {
   testk6chaijscontracts,
   testHTTPInstrumentation,
   testSmScreenshots,
+  testAgento11yEvals,
 } from './basic.js'
 
 let testCasesOK = new Rate('test_case_ok')
@@ -80,6 +81,7 @@ const testCases = [
   SslcheckDaysUntilExpiry,
   SslcheckHealthyCertificate,
   SslcheckIsFunction,
+  testAgento11yEvals,
 ]
 
 export const options = {
@@ -91,9 +93,9 @@ export const options = {
   },
 }
 
-export default function () {
+export default async function () {
   try {
-    testCases[__ITER]()
+    await testCases[__ITER]()
     testCasesOK.add(true)
   } catch (e) {
     testCasesOK.add(false)

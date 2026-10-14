@@ -114,5 +114,8 @@
   "sm-sslcheck": {
     "versions": ["0.1.0"],
     "published": false
+  },
+  "agento11y-evals": {
+    "versions": ["0.1.0"]
   }
 }
