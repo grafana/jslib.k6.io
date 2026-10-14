@@ -22,7 +22,7 @@ import {
 import pyroscope from '../lib/http-instrumentation-pyroscope/1.0.2/index.js'
 import tempo from '../lib/http-instrumentation-tempo/1.0.1/index.js'
 import { captureScreenshot, loki, gcs } from '../lib/sm-screenshots/0.1.0/index.js'
-import { client as agento11yEvals } from '../lib/agento11y-evals/0.1.0/index.js'
+import agento11yEvals from '../lib/agento11y-evals/0.1.0/index.js'
 
 pyroscope.instrumentHTTP()
 tempo.instrumentHTTP({
@@ -182,10 +182,12 @@ function testSmScreenshots() {
 async function testAgento11yEvals() {
   // No credentials: the client builds, every call needs them, and run() reports instead of rejecting.
   const evals = agento11yEvals({})
+  const withToken = agento11yEvals({ token: 'secret-token' })
   const result = await evals.experiment('exp_test').run({ testCaseId: 'case' }, async () => {})
   const pullError = await evals.pullSuite('suite', 'v1').then(() => null, (e) => String(e))
   check(null, {
     'agento11y-evals client builds without credentials': () => typeof evals.createExperiment === 'function',
+    'agento11y-evals client does not expose its token': () => !JSON.stringify(withToken).includes('secret-token'),
     'agento11y-evals pullSuite needs credentials': () =>
       pullError !== null && pullError.includes('apiUrl, tenantId and token are required'),
     'agento11y-evals run() fails without rejecting': () =>
