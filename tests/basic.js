@@ -179,21 +179,16 @@ function testSmScreenshots() {
   })
 }
 
-function testAgento11yEvals() {
-  // No credentials: the client builds, every call needs them, and run() reports instead of throwing.
+async function testAgento11yEvals() {
+  // No credentials: the client builds, every call needs them, and run() reports instead of rejecting.
   const evals = agento11yEvals({})
-  const result = evals.experiment('exp_test').run({ testCaseId: 'case' }, () => {})
+  const result = await evals.experiment('exp_test').run({ testCaseId: 'case' }, async () => {})
+  const pullError = await evals.pullSuite('suite', 'v1').then(() => null, (e) => String(e))
   check(null, {
     'agento11y-evals client builds without credentials': () => typeof evals.createExperiment === 'function',
-    'agento11y-evals pullSuite needs credentials': () => {
-      try {
-        evals.pullSuite('suite', 'v1')
-        return false
-      } catch (e) {
-        return String(e).includes('apiUrl, tenantId and token are required')
-      }
-    },
-    'agento11y-evals run() fails without throwing': () =>
+    'agento11y-evals pullSuite needs credentials': () =>
+      pullError !== null && pullError.includes('apiUrl, tenantId and token are required'),
+    'agento11y-evals run() fails without rejecting': () =>
       result.passed === false && result.explanation.includes('apiUrl, tenantId and token are required'),
   })
 }

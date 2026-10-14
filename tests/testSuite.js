@@ -93,9 +93,9 @@ export const options = {
   },
 }
 
-export default function () {
+export default async function () {
   try {
-    testCases[__ITER]()
+    await testCases[__ITER]()
     testCasesOK.add(true)
   } catch (e) {
     testCasesOK.add(false)
