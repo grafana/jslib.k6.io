@@ -21,6 +21,7 @@ import {
 import {
   testTempoW3CPropagator,
   testTempoJaegerPropagator,
+  testTempoB3Propagator,
 } from './instrumentation-tempo.js'
 import {
   testJsonPath,
@@ -73,6 +74,7 @@ const testCases = [
   testPyroscopeRequestWithParams,
   testTempoW3CPropagator,
   testTempoJaegerPropagator,
+  testTempoB3Propagator,
   testHTTPInstrumentation,
   testSmScreenshots,
   BrowserAIExports,
