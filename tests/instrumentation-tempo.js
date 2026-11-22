@@ -1,4 +1,4 @@
-import tempo from '../lib/http-instrumentation-tempo/1.0.1/index.js'
+import tempo from '../lib/http-instrumentation-tempo/1.0.2/index.js'
 import { check } from 'k6'
 
 function testTempoW3CPropagator() {
@@ -29,7 +29,22 @@ function testTempoJaegerPropagator() {
     }
 }
 
+function testTempoB3Propagator() {
+    const client = new tempo.Client({
+        propagator: 'b3',
+    })
+
+    const res = client.request('GET', 'https://quickpizza.grafana.com/api/doughs')
+
+    if (check(res.request, { 'contains b3 header': (req) => req.headers['B3'] != null })) {
+        check(res.request, {
+            'b3 header is valid': (req) => String(req.headers['B3']).match(/^[0-9a-f]{32}-[0-9a-f]{16}-[01]$/),
+        })
+    }
+}
+
 export {
     testTempoW3CPropagator,
     testTempoJaegerPropagator,
+    testTempoB3Propagator,
 }
